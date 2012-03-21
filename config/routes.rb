@@ -1,5 +1,9 @@
 IrcSeedBank::Application.routes.draw do
 
+  resources :donors
+
+  resources :seeds
+
 	devise_for :users
 	resources :users, :only => :show	
 	authenticated :user do

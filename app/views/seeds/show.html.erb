@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Family:</b>
+  <%= @seed.family %>
+</p>
+
+<p>
+  <b>Variety:</b>
+  <%= @seed.variety %>
+</p>
+
+<p>
+  <b>Quantity:</b>
+  <%= @seed.quantity %>
+</p>
+
+
+<%= link_to 'Edit', edit_seed_path(@seed) %> |
+<%= link_to 'Back', seeds_path %>

@@ -1,0 +1,36 @@
+<%= form_tag url_for(:controller => :seeds, :action => :index), :method => 'get' do %>
+	<b>Family:</b><%= text_field_tag :family, params[:family], :id => :family_tag %>
+	<br />
+	<b>Variety:</b><%= text_field_tag :variety, params[:variety], :id => :variety_tag %>
+	<br />
+	<%= submit_tag "Find Seeds", :name => nil %>
+<% end %>
+
+<% if @seeds %>
+	<h1>Listing Seeds</h1>
+
+	<table>
+		<tr>
+		  <th>Variety</th>
+		  <th>Family</th>
+		  <th>Quantity</th>
+		  <th></th>
+		  <th></th>
+		  <th></th>
+		</tr>
+
+	<% @seeds.each do |seed| %>
+		<tr>
+		  <td><%= seed.variety %></td>
+		  <td><%= seed.family %></td>
+		  <td><%= seed.quantity %></td>
+		  <td><%= link_to 'Show', seed %></td>
+		  <td><%= link_to 'Edit', edit_seed_path(seed) %></td>
+		  <td><%= link_to 'Destroy', seed, confirm: 'Are you sure?', method: :delete %></td>
+		</tr>
+	<% end %>
+	</table>
+<% end %>
+<br />
+
+<%= link_to 'New Seed', new_seed_path %>
