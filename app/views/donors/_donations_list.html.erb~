@@ -1,0 +1,21 @@
+<table>
+  <tr>
+    <th>Family</th>
+    <th>Variety</th>
+    <th>Quantity</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @donations.each do |donation| %>
+  <tr>
+    <td><%= donation.family %></td>
+    <td><%= donation.variety %></td>
+    <td><%= donation.quantity %></td>
+    <td><%= link_to 'Show', donation %></td>
+    <td><%= link_to 'Edit', edit_donation_path(donation) %></td>
+    <td><%= link_to 'Destroy', donation, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>

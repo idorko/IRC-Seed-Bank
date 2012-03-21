@@ -1,5 +1,11 @@
 IrcSeedBank::Application.routes.draw do
 
+  resources :dispensals
+
+  resources :farmers
+
+  resources :donations
+
   resources :donors
 
   resources :seeds

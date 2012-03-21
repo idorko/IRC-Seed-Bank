@@ -1,0 +1,21 @@
+
+<p>
+  <b>Family:</b>
+  <%= @seed.family %>
+</p>
+
+<p>
+  <b>Variety:</b>
+  <%= @seed.variety %>
+</p>
+
+<p>
+  <b>Total Quantity:</b>
+  <%= @seed.quantity %>
+</p>
+<b>Donations</b> <br />
+<%= render "donor_list" %>
+<b>Dispensals</b> <br />
+<%= render "dispensal_list" %>
+<%= link_to 'Edit', edit_seed_path(@seed) %> |
+<%= link_to 'Back', seeds_path %>

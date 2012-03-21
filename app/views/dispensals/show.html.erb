@@ -1,0 +1,22 @@
+
+<p>
+  <b>Family:</b>
+  <%= @dispensal.family %>
+</p>
+
+<p>
+  <b>Variety:</b>
+  <%= @dispensal.variety %>
+</p>
+
+<p>
+  <b>Quantity:</b>
+  <%= @dispensal.quantity %>
+</p>
+<p> 
+	<b>Farmer:</b>
+	<%= @farmer.name %>
+</p>
+
+<%= link_to 'Edit', edit_dispensal_path(@dispensal) %> |
+<%= link_to 'Back', dispensals_path %>

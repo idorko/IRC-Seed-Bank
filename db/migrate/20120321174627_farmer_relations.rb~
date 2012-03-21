@@ -1,0 +1,3 @@
+class FarmerRelations < ActiveRecord::Migration
+  def change
+end

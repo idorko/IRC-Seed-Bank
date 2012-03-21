@@ -1,0 +1,22 @@
+
+<p>
+  <b>Family:</b>
+  <%= @donation.family %>
+</p>
+
+<p>
+  <b>Variety:</b>
+  <%= @donation.variety %>
+</p>
+
+<p>
+  <b>Quantity:</b>
+  <%= @donation.quantity %>
+</p>
+
+<p> 
+	<b>Donor:</b>
+	<%= @donor.name %>
+</p>
+<%= link_to 'Edit', edit_donation_path(@donation) %> |
+<%= link_to 'Back', donations_path %>

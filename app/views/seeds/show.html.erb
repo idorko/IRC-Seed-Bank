@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 
 <p>
   <b>Family:</b>
@@ -11,10 +10,12 @@
 </p>
 
 <p>
-  <b>Quantity:</b>
+  <b>Stock Quantity:</b>
   <%= @seed.quantity %>
 </p>
-
-
+<b>Donations</b> <br />
+<%= render "donor_list" %>
+<b>Dispensals</b> <br />
+<%= render "dispensal_list" %>
 <%= link_to 'Edit', edit_seed_path(@seed) %> |
 <%= link_to 'Back', seeds_path %>

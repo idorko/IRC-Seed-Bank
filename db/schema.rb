@@ -11,7 +11,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120321012830) do
+ActiveRecord::Schema.define(:version => 20120321174627) do
+
+  create_table "dispensals", :force => true do |t|
+    t.string   "family"
+    t.string   "variety"
+    t.integer  "quantity"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "farmer_id"
+    t.integer  "seed_id"
+  end
+
+  create_table "donations", :force => true do |t|
+    t.string   "family"
+    t.string   "variety"
+    t.integer  "quantity"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "donor_id"
+    t.integer  "seed_id"
+  end
 
   create_table "donors", :force => true do |t|
     t.string   "name"
@@ -23,6 +43,12 @@ ActiveRecord::Schema.define(:version => 20120321012830) do
   create_table "donors_seeds", :id => false, :force => true do |t|
     t.integer "donor_id"
     t.integer "seed_id"
+  end
+
+  create_table "farmers", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "seeds", :force => true do |t|

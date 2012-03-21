@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 
 <p>
   <b>Name:</b>
@@ -9,7 +8,7 @@
   <b>Email:</b>
   <%= @donor.email %>
 </p>
-
-<%= link_to 'New Donation', new_donation_path(@donor) %> |
+<%= render 'donor_list' %>
+<%= link_to 'New Donation', :controller => :donations, :action => :new, :donor_id => @donor %>
 <%= link_to 'Edit', edit_donor_path(@donor) %> |
 <%= link_to 'Back', donors_path %>

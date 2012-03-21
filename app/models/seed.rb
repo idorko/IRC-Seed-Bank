@@ -1,10 +1,25 @@
 class Seed < ActiveRecord::Base
 	
-	has_and_belongs_to_many :donors, :join_table => 'donors_seeds'
+	has_many :donations
+	has_many :dispensals
 
 	validates :family, :presence => true
 	validates :variety, :presence => true
 	
+
+	def update_quantity
+		#get total quantity of seeds in bank based on 
+		#donations and dispensals
+		total = 0
+		donations.each do |donation|
+			total += donation.quantity
+		end
+		dispensals.each do |dispensal|
+			total -= dispensal.quantity
+		end
+		update_attributes(:quantity => total)
+	end
+ 
 	def self.search(variety, family)
 		#find seeds based on variety and family 
 		#or get all seeds

@@ -1,0 +1,4 @@
+class Donation < ActiveRecord::Base
+	belongs_to :donors
+	belongs_to :seeds
+end

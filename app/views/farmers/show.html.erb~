@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @farmer.name %>
+</p>
+
+<%= render 'dispensals_list' %>
+<%= link_to 'Dispense Seeds', :controller => :dispensals, :action => :new, :farmer_id => @farmer %>
+<%= link_to 'Edit', edit_farmer_path(@farmer) %> |
+<%= link_to 'Back', farmers_path %>
