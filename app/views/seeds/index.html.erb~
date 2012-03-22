@@ -1,7 +1,5 @@
 <%= form_tag url_for(:controller => :seeds, :action => :index), :method => 'get' do %>
-	<b>Family:</b><%= text_field_tag :family, params[:family], :id => :family_tag %>
-	<br />
-	<b>Variety:</b><%= text_field_tag :variety, params[:variety], :id => :variety_tag %>
+	<b>Family:</b><%= collection_select :seed :family, @seeds, :id, :family %>
 	<br />
 	<%= submit_tag "Find Seeds", :name => nil %>
 <% end %>

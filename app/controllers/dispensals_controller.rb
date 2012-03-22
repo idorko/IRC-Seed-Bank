@@ -44,6 +44,7 @@ class DispensalsController < ApplicationController
     @dispensal = Dispensal.new(params[:dispensal])
 		@seed = Seed.search(params[:variety], params[:family]).first
 		@dispensal.seed = @seed
+		@farmer = @dispensal.farmer
     respond_to do |format|
       if @dispensal.save
 				@dispensal.seed.update_quantity

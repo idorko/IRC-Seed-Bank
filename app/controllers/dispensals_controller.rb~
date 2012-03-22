@@ -44,10 +44,11 @@ class DispensalsController < ApplicationController
     @dispensal = Dispensal.new(params[:dispensal])
 		@seed = Seed.search(params[:variety], params[:family]).first
 		@dispensal.seed = @seed
+		@farmer = @dispensal.seed.farmer
     respond_to do |format|
       if @dispensal.save
 				@dispensal.seed.update_quantity
-        format.html { redirect_to @dispensal, notice: 'Dispensal was successfully created.' }
+        format.html { redirect_to @farmer, notice: 'Dispensal was successfully created.' }
         format.json { render json: @dispensal, status: :created, location: @dispensal }
       else
         format.html { render action: "new" }
