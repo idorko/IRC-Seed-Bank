@@ -1,0 +1,12 @@
+<%= form_tag options_donations_path, :method => 'get' do %>
+	<div class="form_row">
+    <label for="seeds">Choose Seed:</label>
+		<%= render "shared/seed_list" %>
+	</div>
+	<div class="field">
+		<%= hidden_field_tag 'donor_id', params[:donor_id] %>
+	</div>
+	 <div class="actions">
+    <%= submit_tag "Select Seed", :name => nil %>
+  </div>
+<% end %>

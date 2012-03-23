@@ -1,19 +1,16 @@
 <table>
   <tr>
-    <th>Family</th>
-    <th>Variety</th>
+    <th>Seed</th>
     <th>Quantity</th>
-    <th></th>
     <th></th>
     <th></th>
   </tr>
 
-<% @dispensals.each do |dispensal| %>
+<% @farmer.dispensals.each do |dispensal| %>
   <tr>
-    <td><%= dispensal.family %></td>
-    <td><%= dispensal.variety %></td>
+    <td><%= dispensal.seed.humanize %></td>
     <td><%= dispensal.quantity %></td>
-    <td><%= link_to 'Show', dispensal %></td>
+    <td><%= link_to 'Show', dispensal.seed %></td>
     <td><%= link_to 'Edit', edit_dispensal_path(dispensal) %></td>
     <td><%= link_to 'Destroy', dispensal, confirm: 'Are you sure?', method: :delete %></td>
   </tr>

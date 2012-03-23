@@ -1,10 +1,16 @@
 IrcSeedBank::Application.routes.draw do
 
-  resources :dispensals
+  resources :dispensals do
+		get 'list_seeds', :on => :collection 	
+		get 'options', :on => :collection
+	end
 
   resources :farmers
 
-  resources :donations
+  resources :donations do
+		get 'list_seeds', :on => :collection 	
+		get 'options', :on => :collection
+	end
 
   resources :donors
 

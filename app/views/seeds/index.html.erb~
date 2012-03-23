@@ -1,9 +1,8 @@
 <%= form_tag url_for(:controller => :seeds, :action => :index), :method => 'get' do %>
-	<b>Family:</b><%= collection_select :seed :family, @seeds, :id, :family %>
+	<b>Family:</b><%= select_tag("seed_family", options_for_select(Seed.family_list, Seed.family_list)) %>
 	<br />
 	<%= submit_tag "Find Seeds", :name => nil %>
 <% end %>
-
 <% if @seeds %>
 	<h1>Listing Seeds</h1>
 

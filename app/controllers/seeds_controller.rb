@@ -5,7 +5,9 @@ class SeedsController < ApplicationController
   # GET /seeds
   # GET /seeds.json
   def index
-    @seeds = Seed.search(params[:variety], params[:family])
+			if params[:seed_family]
+    		@seeds = Seed.find_all_by_family(params[:seed_family])
+			end
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @seeds }

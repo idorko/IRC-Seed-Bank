@@ -10,7 +10,7 @@
 </p>
 
 <p>
-  <b>Total Quantity:</b>
+  <b>Stock Quantity:</b>
   <%= @seed.quantity %>
 </p>
 <b>Donations</b> <br />

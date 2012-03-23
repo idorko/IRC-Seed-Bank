@@ -1,4 +1,23 @@
 class DispensalsController < ApplicationController
+
+	def options
+		#setting final dispensal parameters before creation
+		@seed = Seed.find(params[:seed])
+		@farmer = Farmer.find(params[:farmer_id])
+		@dispensal = Dispensal.new
+		@dispensal.farmer = @farmer
+		@dispensal.seed = @seed
+	end
+	
+	def list_seeds
+		 @seeds = Seed.find_all_by_family(params[:seed_family])
+	#list all seeds from family for selection
+	   respond_to do |format|
+     format.html # list_seeds.html.erb
+     format.json { render json: @dispensals }
+    end
+	end
+
   # GET /dispensals
   # GET /dispensals.json
   def index
@@ -42,16 +61,19 @@ class DispensalsController < ApplicationController
   # POST /dispensals.json
   def create
     @dispensal = Dispensal.new(params[:dispensal])
-		@seed = Seed.search(params[:variety], params[:family]).first
+		@seed = Seed.find(params[:dispensal][:seed_id])
 		@dispensal.seed = @seed
-		@farmer = @dispensal.seed.farmer
+		@farmer = @dispensal.farmer
     respond_to do |format|
+			if @dispensal.quantity > @seed.quantity
+			 redirect_to(options_dispensals_path( :seed = params[:dispensal][:seed_id], :farmer_id = @farmer.id, notice: 'Not enough seeds.')) 
+			end
       if @dispensal.save
 				@dispensal.seed.update_quantity
         format.html { redirect_to @farmer, notice: 'Dispensal was successfully created.' }
         format.json { render json: @dispensal, status: :created, location: @dispensal }
       else
-        format.html { render action: "new" }
+        format.html { render action: "options" }	
         format.json { render json: @dispensal.errors, status: :unprocessable_entity }
       end
     end

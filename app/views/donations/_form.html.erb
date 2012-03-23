@@ -1,32 +1,12 @@
-<%= form_for(@donation) do |f| %>
-  <% if @donation.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@donation.errors.count, "error") %> prohibited this donation from being saved:</h2>
-
-      <ul>
-      <% @donation.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<%= form_tag list_seeds_donations_path, :method => 'get' do %>
   <div class="field">
-    <%= f.label :family %><br />
-    <%= f.text_field :family %>
-  </div>
-  <div class="field">
-    <%= f.label :variety %><br />
-    <%= f.text_field :variety %>
-  </div>
-  <div class="field">
-    <%= f.label :quantity %><br />
-    <%= f.number_field :quantity %>
-  </div>
+		<b>Family</b>
+		<%= select_tag("seed_family", options_for_select(Seed.family_list, Seed.family_list)) %>
+	</div>
 	<div class="field">
-		<%= f.hidden_field :donor_id %>
+		<%= hidden_field_tag 'donor_id', params[:donor_id] %>
 	</div>
   <div class="actions">
-    <%= f.submit %>
+    <%= submit_tag "Find Seeds", :name => nil %>
   </div>
 <% end %>

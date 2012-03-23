@@ -1,0 +1,4 @@
+    <% @seeds.each do |seed| %>
+      <br><%= radio_button_tag 'seed', seed, @seed == seed %>
+      <%= seed.humanize %>
+    <% end %>

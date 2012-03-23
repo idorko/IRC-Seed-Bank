@@ -1,5 +1,24 @@
 class DonationsController < ApplicationController
-  # GET /donations
+  
+def options
+		#setting final donation parameters before creation
+		@seed = Seed.find(params[:seed])
+		@donor = Donor.find(params[:donor_id])
+		@donation = Donation.new
+		@donation.donor = @donor
+		@donation.seed = @seed
+	end
+	
+	def list_seeds
+		 @seeds = Seed.find_all_by_family(params[:seed_family])
+	#list all seeds from family for selection
+	   respond_to do |format|
+     format.html # list_seeds.html.erb
+     format.json { render json: @dispensals }
+    end
+	end
+	
+	# GET /donations
   # GET /donations.json
   def index
     @donations = Donation.all
@@ -42,15 +61,15 @@ class DonationsController < ApplicationController
   # POST /donations.json
   def create
     @donation = Donation.new(params[:donation])
-		@seed = Seed.search(params[:variety], params[:family]).first
+		@seed = Seed.find(params[:donation][:seed_id])
 		@donation.seed = @seed
     respond_to do |format|
       if @donation.save
 				@donation.seed.update_quantity
-        format.html { redirect_to @donation, notice: 'Donation was successfully created.' }
+        format.html { redirect_to @seed, notice: 'Donation was successfully created.' }
         format.json { render json: @donation, status: :created, location: @donation }
       else
-        format.html { render action: "new" }
+        format.html { render action: "options" }
         format.json { render json: @donation.errors, status: :unprocessable_entity }
       end
     end

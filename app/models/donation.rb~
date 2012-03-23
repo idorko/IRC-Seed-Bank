@@ -1,4 +1,4 @@
 class Donation < ActiveRecord::Base
-	belongs_to :donors
-	belongs_to :seeds
+	belongs_to :donor
+	belongs_to :seed
 end

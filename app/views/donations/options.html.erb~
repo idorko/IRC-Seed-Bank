@@ -1,0 +1,32 @@
+<h3> Donation Information </h3>
+<b>Donor: </b><%= @donor.name %><br />
+<b>Seed: </b><%= @seed.humanize %><br />
+<b>Current Quantity: </b><%= @seed.pounds %><br/>
+<br />
+<br />
+<%= form_for(@donation) do |f| %>
+  <% if @donation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@donation.errors.count, "error") %> prohibited this donation from being processed:</h2>
+
+      <ul>
+      <% @donation.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+	<div class = "field">
+		<%= f.label :quantity "oz" %>
+		<%= f.text_field :quantity %>
+	<div class="field">
+		<%= f.hidden_field :donor_id %>
+	</div>
+	<div class="field">
+		<%= f.hidden_field :seed_id %>
+	</div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+

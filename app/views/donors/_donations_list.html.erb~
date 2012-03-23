@@ -8,7 +8,7 @@
     <th></th>
   </tr>
 
-<% @donations.each do |donation| %>
+<% @donor.donations.each do |donation| %>
   <tr>
     <td><%= donation.family %></td>
     <td><%= donation.variety %></td>

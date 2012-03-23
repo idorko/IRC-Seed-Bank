@@ -1,16 +1,14 @@
 <table>
   <tr>
-    <th>Family</th>
-    <th>Variety</th>
+    <th>Seed</th>
     <th>Quantity</th>
-    <th></th>
     <th></th>
     <th></th>
   </tr>
 
 <% @donor.donations.each do |donation| %>
   <tr>
-    <td><%= donation.family %></td>
+		<td><%= donation.seed.humanize %>
     <td><%= donation.variety %></td>
     <td><%= donation.quantity %></td>
     <td><%= link_to 'Show', donation %></td>

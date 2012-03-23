@@ -1,5 +1,18 @@
 IrcSeedBank::Application.routes.draw do
 
+  resources :dispensals do
+		get 'list_seeds', :on => :collection 	
+		get 'options', :on => :collection
+	end
+
+  resources :farmers
+
+  resources :donations
+
+  resources :donors
+
+  resources :seeds
+
 	devise_for :users
 	resources :users, :only => :show	
 	authenticated :user do
