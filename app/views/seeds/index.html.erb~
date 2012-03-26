@@ -8,19 +8,16 @@
 
 	<table>
 		<tr>
-		  <th>Variety</th>
-		  <th>Family</th>
+		  <th>Seed</th>
 		  <th>Quantity</th>
-		  <th></th>
 		  <th></th>
 		  <th></th>
 		</tr>
 
 	<% @seeds.each do |seed| %>
 		<tr>
-		  <td><%= seed.variety %></td>
-		  <td><%= seed.family %></td>
-		  <td><%= seed.quantity %></td>
+		  <td><%= seed.humanize %></td>
+		  <td><%= seed.pounds %></td>
 		  <td><%= link_to 'Show', seed %></td>
 		  <td><%= link_to 'Edit', edit_seed_path(seed) %></td>
 		  <td><%= link_to 'Destroy', seed, confirm: 'Are you sure?', method: :delete %></td>

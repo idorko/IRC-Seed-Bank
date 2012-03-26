@@ -66,7 +66,7 @@ class DispensalsController < ApplicationController
 		@farmer = @dispensal.farmer
     respond_to do |format|
 			if @dispensal.quantity > @seed.quantity
-			 redirect_to(options_dispensals_path( :seed = params[:dispensal][:seed_id], :farmer_id = @farmer.id, notice: 'Not enough seeds.')) 
+			 redirect_to(options_dispensals_path( :seed => params[:dispensal][:seed_id], :farmer_id => @farmer.id), alert: 'Not enough seeds.') and return false
 			end
       if @dispensal.save
 				@dispensal.seed.update_quantity

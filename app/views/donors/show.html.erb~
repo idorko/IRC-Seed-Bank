@@ -1,14 +1,23 @@
 
 <p>
-  <b>Name:</b>
+  <b>Company:</b>
   <%= @donor.name %>
 </p>
-
+<p>
+  <b>Contact:</b>
+  <%= @donor.contact_name %>
+</p>
 <p>
   <b>Email:</b>
   <%= @donor.email %>
 </p>
-<%= render 'donor_list' %>
-<%= link_to 'New Donation', :controller => :donations, :action => :new, :donor_id => @donor %>
-<%= link_to 'Edit', edit_donor_path(@donor) %> |
+<p>
+  <b>Phone Number:</b>
+  <%= @donor.contact_phone %>
+</p>
+<h3> Donations </h3>
+<%= render 'donations_list' %>
+<%= link_to 'New Donation', :controller => :donations, :action => :new, :donor_id => @donor %> |
+<%= link_to "Edit #{@donor.name}", edit_donor_path(@donor) %> |
 <%= link_to 'Back', donors_path %>
+

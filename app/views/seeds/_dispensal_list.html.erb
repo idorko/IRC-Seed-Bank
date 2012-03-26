@@ -1,3 +1,4 @@
+<h3> Dispensals </h3>
 <table>
   <tr>
     <th>Farmer</th>
@@ -5,14 +6,11 @@
     <th></th>
     <th></th>
   </tr>
-
-<% @seed.dispensals.each do |dispensal| %>
-  <tr>
-    <td><%= dispensal.farmer.name %></td>
+ <tr>
+	<% @seed.dispensals.each do |dispensal| %>
+    <td><%= link_to dispensal.farmer.name, dispensal.farmer %></td>
     <td><%= dispensal.pounds %></td>
-    <td><%= link_to 'Show', dispensal %></td>
-    <td><%= link_to 'Edit', edit_dispensal_path(dispensal) %></td>
-    <td><%= link_to 'Destroy', dispensal, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'More Details', dispensal %></td>
   </tr>
 <% end %>
 </table>

@@ -16,11 +16,8 @@
 
 	<% @seeds.each do |seed| %>
 		<tr>
-		  <td><%= seed.humanize %></td>
-		  <td><%= seed.pounds %></td>
-		  <td><%= link_to 'Show', seed %></td>
-		  <td><%= link_to 'Edit', edit_seed_path(seed) %></td>
-		  <td><%= link_to 'Destroy', seed, confirm: 'Are you sure?', method: :delete %></td>
+		  <td><%= link_to seed.humanize, seed %></td>
+		  <td><%= seed.pounds %></td>  
 		</tr>
 	<% end %>
 	</table>

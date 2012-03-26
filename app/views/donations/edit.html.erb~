@@ -1,5 +1,5 @@
 <h1>Editing donation</h1>
-
+<%= button_to 'Destroy', @donation, confirm: 'Are you sure?', method: :delete %>
 
 <%= form_for @donation %>
   

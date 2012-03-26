@@ -1,13 +1,13 @@
 class Seed < ActiveRecord::Base
 	
-	has_many :donations
-	has_many :dispensals
+	has_many :donations, :dependent => :destroy
+	has_many :dispensals, :dependent => :destroy
 
 	validates :family, :presence => true
 	validates :variety, :presence => true
 	
 	def pounds
-	
+		return "#{self.quantity / 16} lbs, #{self.quantity % 16} oz"
 	end
 	def ounces
 		return "#{self.quantity} oz"
@@ -17,6 +17,7 @@ class Seed < ActiveRecord::Base
 		#donations and dispensals
 		total = 0
 		donations.each do |donation|
+			puts "QUANTITY" << donation.quantity.to_s
 			total += donation.quantity
 		end
 		dispensals.each do |dispensal|

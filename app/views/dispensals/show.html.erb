@@ -1,22 +1,15 @@
 
 <p>
-  <b>Family:</b>
-  <%= @dispensal.family %>
-</p>
-
-<p>
-  <b>Variety:</b>
-  <%= @dispensal.variety %>
-</p>
-
+  <b>Seed:</b>
+	<%= link_to @dispensal.seed.humanize, @dispensal.seed %>
 <p>
   <b>Quantity:</b>
-  <%= @dispensal.quantity %>
+  <%= @dispensal.pounds %>
 </p>
 <p> 
 	<b>Farmer:</b>
-	<%= @farmer.name %>
+	<%= link_to @farmer.name, @farmer %>
 </p>
 
-<%= link_to 'Edit', edit_dispensal_path(@dispensal) %> |
+<%= button_to 'Delete Dispensal', @dispensal, confirm: 'Are you sure?', method: :delete %>
 <%= link_to 'Back', dispensals_path %>

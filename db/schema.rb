@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120321174627) do
+ActiveRecord::Schema.define(:version => 20120326150839) do
 
   create_table "dispensals", :force => true do |t|
     t.string   "family"
@@ -31,13 +31,17 @@ ActiveRecord::Schema.define(:version => 20120321174627) do
     t.datetime "updated_at", :null => false
     t.integer  "donor_id"
     t.integer  "seed_id"
+    t.float    "value"
   end
 
   create_table "donors", :force => true do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.string   "contact_name"
+    t.string   "contact_email"
+    t.string   "contact_phone"
   end
 
   create_table "donors_seeds", :id => false, :force => true do |t|
@@ -49,14 +53,21 @@ ActiveRecord::Schema.define(:version => 20120321174627) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "language"
+    t.string   "country"
+    t.string   "farm_site"
   end
 
   create_table "seeds", :force => true do |t|
     t.string   "family"
     t.string   "variety"
     t.integer  "quantity"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "spacing"
+    t.string   "maturity"
+    t.string   "common_names"
+    t.string   "description"
   end
 
   create_table "users", :force => true do |t|

@@ -1,7 +1,7 @@
 class Seed < ActiveRecord::Base
 	
-	has_many :donations
-	has_many :dispensals
+	has_many :donations, :dependent => :destroy
+	has_many :dispensals, :dependent => :destroy
 
 	validates :family, :presence => true
 	validates :variety, :presence => true

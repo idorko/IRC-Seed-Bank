@@ -61,10 +61,16 @@ def options
   # POST /donations.json
   def create
     @donation = Donation.new(params[:donation])
+		#set donation quantity
+		
+
 		@seed = Seed.find(params[:donation][:seed_id])
 		@donation.seed = @seed
-    respond_to do |format|
+    
+		respond_to do |format|
       if @donation.save
+				#link seed to donation			
+				@donation.update_attributes(:quantity => params[:pounds].to_i*16 + params[:ounces].to_i)			
 				@donation.seed.update_quantity
         format.html { redirect_to @seed, notice: 'Donation was successfully created.' }
         format.json { render json: @donation, status: :created, location: @donation }
@@ -94,11 +100,9 @@ def options
   # DELETE /donations/1
   # DELETE /donations/1.json
   def destroy
-    @donation = Donation.find(params[:id])
-		@seed = @donation.seed
-    @donation.destroy
+    @seed = Donation.find(params[:id]).seed
+		Donation.destroy(params[:id])
 		@seed.update_quantity
-
     respond_to do |format|
       format.html { redirect_to @seed }
       format.json { head :no_content }

@@ -1,9 +1,8 @@
-<h1>Listing donors</h1>
+<h1>Listing Donors</h1>
 
 <table>
   <tr>
-    <th>Name</th>
-    <th>Email</th>
+    <th>Company</th>
     <th></th>
     <th></th>
     <th></th>
@@ -11,10 +10,8 @@
 
 <% @donors.each do |donor| %>
   <tr>
-    <td><%= donor.name %></td>
-    <td><%= donor.email %></td>
-    <td><%= link_to 'Show', donor %></td>
-    <td><%= link_to 'Edit', edit_donor_path(donor) %></td>
+    <td><%= link_to donor.name, donor %></td>
+    <td><%= link_to 'Details', donor %></td>
     <td><%= link_to 'Destroy', donor, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>

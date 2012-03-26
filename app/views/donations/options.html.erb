@@ -18,12 +18,20 @@
   <% end %>
 	<div class = "field">
 		<%= f.label :quantity %>
-		<%= f.text_field :quantity %> oz
+		<%= text_field_tag :pounds %>lb <%= text_field_tag :ounces %>oz
+	</div>
+	<div class = "field">
+		<%= f.label :value %>
+		<%= f.text_field :value %>$
+	</div>
 	<div class="field">
 		<%= f.hidden_field :donor_id %>
 	</div>
 	<div class="field">
 		<%= f.hidden_field :seed_id %>
+	</div>
+	<div class="field">
+		<%= f.hidden_field :quantity, :value => 0 %>
 	</div>
   <div class="actions">
     <%= f.submit %>

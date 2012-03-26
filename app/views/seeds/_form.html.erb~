@@ -19,9 +19,21 @@
     <%= f.label :variety %><br />
     <%= f.text_field :variety %>
   </div>
+	  <div class="field">
+    <%= f.label :spacing %><br />
+    <%= f.text_field :spacing %> inches
+  </div>
   <div class="field">
-    <%= f.label :quantity %><br />
-    <%= f.number_field :quantity %>
+    <%= f.label :maturity %><br />
+    <%= f.text_field :maturity %> weeks
+  </div>
+  <div class="field">
+    <%= f.label :common_names %><br />
+    <%= f.text_field :common_names %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description, :size => "43x10"  %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -8,11 +8,9 @@
 
 <% @farmer.dispensals.each do |dispensal| %>
   <tr>
-    <td><%= dispensal.seed.humanize %></td>
-    <td><%= dispensal.quantity %></td>
-    <td><%= link_to 'Show', dispensal.seed %></td>
-    <td><%= link_to 'Edit', edit_dispensal_path(dispensal) %></td>
-    <td><%= link_to 'Destroy', dispensal, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to dispensal.seed.humanize, dispensal.seed %></td>
+    <td><%= dispensal.pounds %></td>
+    <td><%= link_to 'More Details', dispensal %></td>
   </tr>
 <% end %>
 </table>

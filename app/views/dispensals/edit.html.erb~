@@ -1,0 +1,6 @@
+<h1>Editing dispensal</h1>
+    <%= button_to 'Destroy', @dispensal, confirm: 'Are you sure?', method: :delete %>
+<%= render 'form' %>
+
+<%= link_to 'Back', @dispensal %> 
+

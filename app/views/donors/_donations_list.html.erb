@@ -8,12 +8,10 @@
 
 <% @donor.donations.each do |donation| %>
   <tr>
-		<td><%= donation.seed.humanize %>
-    <td><%= donation.variety %></td>
-    <td><%= donation.quantity %></td>
-    <td><%= link_to 'Show', donation %></td>
-    <td><%= link_to 'Edit', edit_donation_path(donation) %></td>
-    <td><%= link_to 'Destroy', donation, confirm: 'Are you sure?', method: :delete %></td>
+		<td><%= link_to donation.seed.humanize, donation.seed %>
+    <td><%= donation.pounds %></td>
+    <td><%= link_to 'More Details', donation %></td>
+
   </tr>
 <% end %>
 </table>

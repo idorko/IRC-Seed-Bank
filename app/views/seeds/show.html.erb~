@@ -1,21 +1,41 @@
 
 <p>
-  <b>Family:</b>
-  <%= @seed.family %>
+  <b>Seed:</b> 
+	<%= @seed.humanize %>
 </p>
-
-<p>
-  <b>Variety:</b>
-  <%= @seed.variety %>
-</p>
-
 <p>
   <b>Stock Quantity:</b>
-  <%= @seed.quantity %>
+  <%= @seed.pounds %>
 </p>
+<p>
+  <b>Spacing:</b>
+  <%= @seed.spacing %>
+</p>
+<p>
+  <b>Maturity:</b>
+  <%= @seed.maturity %>
+</p>
+<p>
+  <b>Common Names:</b>
+  <%= @seed.common_names %>
+</p>
+
+
 <b>Donations</b> <br />
-<%= render "donor_list" %>
-<b>Dispensals</b> <br />
-<%= render "dispensal_list" %>
-<%= link_to 'Edit', edit_seed_path(@seed) %> |
+<table>
+  <tr>
+    <th>Donor</th>
+    <th>Quantity</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @seed.donations.each do |donation| %>
+	<%= render "donor_list" %>
+<% end %>
+</table>
+
+<%= render "dispensal_list"%>
+
+<%= link_to "Edit #{@seed.humanize}", edit_seed_path(@seed) %> |
 <%= link_to 'Back', seeds_path %>

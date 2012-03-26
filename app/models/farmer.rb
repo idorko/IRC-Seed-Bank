@@ -1,5 +1,5 @@
 class Farmer < ActiveRecord::Base
 
-	has_many :dispensals
+	has_many :dispensals, :dependent => :destroy
 
 end

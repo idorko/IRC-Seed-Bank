@@ -45,7 +45,7 @@ class SeedsController < ApplicationController
   # POST /seeds.json
   def create
     @seed = Seed.new(params[:seed])
-
+		@seed.quantity = 0
     respond_to do |format|
       if @seed.save
         format.html { redirect_to @seed, notice: 'Seed was successfully created.' }
