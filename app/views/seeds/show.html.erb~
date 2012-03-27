@@ -20,22 +20,7 @@
   <%= @seed.common_names %>
 </p>
 
-
-<b>Donations</b> <br />
-<table>
-  <tr>
-    <th>Donor</th>
-    <th>Quantity</th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @seed.donations.each do |donation| %>
 	<%= render "donor_list" %>
-<% end %>
-</table>
+	<%= render "dispensal_list" %>
 
-<%= render "dispensal_list"%>
 
-<%= link_to "Edit #{@seed.humanize}", edit_seed_path(@seed) %> |
-<%= link_to 'Back', seeds_path %>

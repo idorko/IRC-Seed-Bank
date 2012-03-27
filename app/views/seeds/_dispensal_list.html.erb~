@@ -1,16 +1,16 @@
-<h3> Dispensals: </h3>
-<table>
-  <tr>
-    <th>Farmer</th>
-    <th>Quantity</th>
-    <th></th>
-    <th></th>
-  </tr>
- <tr>
-	<% @seed.dispensals.each do |dispensal| %>
-    <td><%= link_to dispensal.farmer.name, dispensal.farmer %></td>
-    <td><%= dispensal.pounds %></td>
-    <td><%= link_to 'More Details', dispensal %></td>
-  </tr>
-<% end %>
-</table>
+<div class="listcol1">
+	<h3> Dispensals </h3>
+	<table>
+		<tr>
+		  <th>Farmer</th>
+		  <th>Quantity</th>
+		</tr>
+	 <tr>
+		<% @seed.dispensals.each do |dispensal| %>
+		  <td><%= link_to dispensal.farmer.name, dispensal.farmer %></td>
+		  <td><%= dispensal.pounds %></td>
+		  <td><%= link_to 'More Details', dispensal %></td>
+		</tr>
+	<% end %>
+	</table>
+</div>

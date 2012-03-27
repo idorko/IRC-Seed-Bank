@@ -1,22 +1,16 @@
+<div class="article columnSingle">
 <h1>Listing Donors</h1>
-
+<%= link_to 'New Donor', new_donor_path %>
 <table>
   <tr>
     <th>Company</th>
-    <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @donors.each do |donor| %>
   <tr>
     <td><%= link_to donor.name, donor %></td>
-    <td><%= link_to 'Details', donor %></td>
-    <td><%= link_to 'Destroy', donor, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
 
-<br />
-
-<%= link_to 'New Donor', new_donor_path %>
+</div>

@@ -1,27 +1,32 @@
-<%= form_tag url_for(:controller => :seeds, :action => :index), :method => 'get' do %>
-	<b>Family:</b><%= select_tag("seed_family", options_for_select(Seed.family_list, Seed.family_list)) %>
-	<br />
-	<%= submit_tag "Find Seeds", :name => nil %>
-<% end %>
-<% if @seeds %>
-	<h1>Listing Seeds</h1>
 
-	<table>
-		<tr>
-		  <th>Seed</th>
-		  <th>Quantity</th>
-		  <th></th>
-		  <th></th>
-		</tr>
-
-	<% @seeds.each do |seed| %>
-		<tr>
-		  <td><%= link_to seed.humanize, seed %></td>
-		  <td><%= seed.pounds %></td>  
-		</tr>
+<div class="article columnSingle">
+	<h1> Seeds</h1>
+	<%= link_to 'New Seed', new_seed_path %>	
+	<%= form_tag url_for(:controller => :seeds, :action => :index), :method => 'get' do %>
+		<b>Family:</b><%= select_tag("seed_family", options_for_select(Seed.family_list, Seed.family_list)) %>
+		<br />
+		<%= submit_tag "Find Seeds", :name => nil %>
 	<% end %>
-	</table>
-<% end %>
-<br />
+</div>
+<div class="article columnSingle">
+	<% if @seeds %>
+		<h1>Listing Seeds</h1>
 
-<%= link_to 'New Seed', new_seed_path %>
+		<table>
+			<tr>
+				<th>Seed</th>
+				<th>Quantity</th>
+				<th></th>
+				<th></th>
+			</tr>
+
+		<% @seeds.each do |seed| %>
+			<tr>
+				<td><%= link_to seed.humanize, seed %></td>
+				<td><%= seed.pounds %></td>  
+			</tr>
+		<% end %>
+		</table>
+	<% end %>
+</div>
+

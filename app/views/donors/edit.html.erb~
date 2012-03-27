@@ -1,4 +1,4 @@
-<h1>Editing @donor.name</h1>
+<h1>Editing <%= @donor.name %></h1>
 <%= button_to 'Delete Donor', @donor, confirm: 'Are you sure?', method: :delete %> 
 <%= render 'form' %>
 

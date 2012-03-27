@@ -1,19 +1,15 @@
+<div class="article columnSingle">
 <h1>Listing farmers</h1>
 
 <table>
   <tr>
     <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
+
   </tr>
 
 <% @farmers.each do |farmer| %>
   <tr>
     <td><%= link_to farmer.name, farmer %></td>
-    <td><%= link_to 'Show', farmer %></td>
-    <td><%= link_to 'Edit', edit_farmer_path(farmer) %></td>
-    <td><%= link_to 'Destroy', farmer, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
@@ -21,3 +17,4 @@
 <br />
 
 <%= link_to 'New Farmer', new_farmer_path %>
+</div>

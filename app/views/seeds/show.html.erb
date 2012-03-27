@@ -1,4 +1,4 @@
-
+<div id="feature">
 <p>
   <b>Seed:</b> 
 	<%= @seed.humanize %>
@@ -19,12 +19,8 @@
   <b>Common Names:</b>
   <%= @seed.common_names %>
 </p>
+</div>
+	<%= render "donor_list" %>
+	<%= render "dispensal_list" %>
 
 
-<%= render "donor_list" %>
-
-
-<%= render "dispensal_list"%>
-
-<%= link_to "Edit #{@seed.humanize}", edit_seed_path(@seed) %> |
-<%= link_to 'Back', seeds_path %>

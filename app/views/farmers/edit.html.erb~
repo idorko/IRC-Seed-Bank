@@ -1,6 +1,9 @@
-<h1>Editing farmer</h1>
+<div class="article columnSingle">
 
-<%= render 'form' %>
+		<h1>Editing Farmer</h1>
+		<%= button_to 'Delete Farmer', @farmer, confirm: 'Are you sure?', method: :delete %>
+		<%= render 'form' %>
 
-<%= link_to 'Show', @farmer %> |
-<%= link_to 'Back', farmers_path %>
+		<%= link_to 'Show', @farmer %> |
+
+</div>
