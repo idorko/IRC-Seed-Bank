@@ -29,6 +29,8 @@ gem "capybara", ">= 1.1.2", :group => :test
 gem "database_cleaner", ">= 0.7.1", :group => :test
 gem "launchy", ">= 2.0.5", :group => :test
 gem "devise", ">= 2.0.4"
+gem 'faker', '>=0.3.1', :group => :development
+gem 'will_paginate', '>=3.0.pre2'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

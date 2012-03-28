@@ -2,17 +2,17 @@
 	<div id="centeredContent">
 		<h1>Listing Donors</h1>
 		<%= link_to 'New Donor', new_donor_path %>
+	<br />
+	<br />
 		<table>
-			<tr>
-				<th>Company</th>
-			</tr>
 
+<%= will_paginate %>
 		<% @donors.each do |donor| %>
 			<tr>
 				<td><%= link_to donor.name, donor %></td>
 			</tr>
 		<% end %>
 		</table>
-	</div<
-
+<%= will_paginate %>
+	</div>
 </div>

@@ -2,17 +2,16 @@
 	<div id="centeredContent">
 		<h1>Listing farmers</h1>
 		<%= link_to 'New Farmer', new_farmer_path %>
+		<br />
+		<br />
+		<%= will_paginate %>
 		<table>
-			<tr>
-				<th>Name</th>
-
-			</tr>
-
 		<% @farmers.each do |farmer| %>
 			<tr>
 				<td><%= link_to farmer.name, farmer %></td>
 			</tr>
 		<% end %>
 		</table>
+		<%= will_paginate %>
 	</div>
 </div>
