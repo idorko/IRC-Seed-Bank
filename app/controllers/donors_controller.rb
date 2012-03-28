@@ -5,7 +5,7 @@ class DonorsController < ApplicationController
   # GET /donors
   # GET /donors.json
   def index
-    @donors = Donor.paginate(:page => params[:page])
+    @donors = Donor.paginate(:page => params[:page], :order => 'name ASC')
 	
     respond_to do |format|
       format.html # index.html.erb

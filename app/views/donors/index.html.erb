@@ -5,14 +5,15 @@
 	<br />
 	<br />
 		<table>
-
-<%= will_paginate %>
-		<% @donors.each do |donor| %>
-			<tr>
-				<td><%= link_to donor.name, donor %></td>
-			</tr>
-		<% end %>
-		</table>
-<%= will_paginate %>
+		<div class="apple_pagination">
+			<%= will_paginate %>
+			<% @donors.each do |donor| %>
+				<tr>
+					<td><%= link_to donor.name, donor %></td>
+				</tr>
+			<% end %>
+			</table>
+			<%= will_paginate %>
+		</div>
 	</div>
 </div>

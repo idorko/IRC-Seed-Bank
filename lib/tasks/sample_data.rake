@@ -15,9 +15,9 @@ namespace :db do
 
 			#create test farmers
 			name = Faker::Name.name
-			language = Faker::Lorem.words(1)
+			language = Faker::Lorem.words(1)[0].to_s
 			country = Faker::Address.country
-			farm_site = Faker::Lorem.words(1)
+			farm_site = Faker::Lorem.words(1)[0].to_s
 			farmer = Farmer.create!(:name => name,
 										 :language => language,
 										 :country => country,

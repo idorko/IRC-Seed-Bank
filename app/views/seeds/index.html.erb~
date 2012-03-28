@@ -10,22 +10,26 @@
 		<% end %>
 	</div>
 </div>
-<div class="article columnSingle">
-	<% if @seeds %>
-		<h1>Listing Seeds</h1>
 
-		<table>
-			<tr>
-				<th>Seed</th>
-				<th>Quantity</th>
-			</tr>
-		<% @seeds.each do |seed| %>
-			<tr>
-				<td><%= link_to seed.humanize, seed %></td>
-				<td><%= seed.pounds %></td>  
-			</tr>
-		<% end %>
-		</table>
+	<% if @seeds %>
+		<div class="article columnSingle">		
+		<h1>Listing <%= @seeds.first.family.capitalize %></h1>
+		<div class="apple_pagination">		
+			<%= will_paginate %>
+			<table>
+				<tr>
+					<th>Seed</th>
+					<th>Quantity</th>
+				</tr>
+			<% @seeds.each do |seed| %>
+				<tr>
+					<td><%= link_to seed.humanize, seed %></td>
+					<td><%= seed.pounds %></td>  
+				</tr>
+			<% end %>
+			</table>
+			<%= will_paginate %>
+		</div>
+	</div>
 	<% end %>
-</div>
 

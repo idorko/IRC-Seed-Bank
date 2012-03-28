@@ -4,14 +4,16 @@
 		<%= link_to 'New Farmer', new_farmer_path %>
 		<br />
 		<br />
-		<%= will_paginate %>
-		<table>
-		<% @farmers.each do |farmer| %>
-			<tr>
-				<td><%= link_to farmer.name, farmer %></td>
-			</tr>
-		<% end %>
-		</table>
-		<%= will_paginate %>
+		<div class="apple_pagination">
+			<%= will_paginate %>
+			<table>
+			<% @farmers.each do |farmer| %>
+				<tr>
+					<td><%= link_to farmer.name, farmer %></td>
+				</tr>
+			<% end %>
+			</table>
+			<%= will_paginate %>
+		</div>
 	</div>
 </div>

@@ -2,7 +2,7 @@ class FarmersController < ApplicationController
   # GET /farmers
   # GET /farmers.json
   def index
-    @farmers = Farmer.paginate(:page => params[:page])
+    @farmers = Farmer.paginate(:page => params[:page], :order => 'name ASC')
 
     respond_to do |format|
       format.html # index.html.erb
