@@ -1,4 +1,11 @@
+<div class="columnSingle">
 <h3>Home</h3>
-<% @users.each do |user| %>
-	<p>User: <%=user.email %></p>
-<% end %>
+	<table>
+		<tr> 
+			<td><b>Total Donors:</b> <%= Donor.all.count %></td>
+		</tr>
+	</table>
+	<%= Farmer.all.count %><br />
+	<%= Seed.all.count %><br />
+</div>	
+

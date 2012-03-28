@@ -11,6 +11,9 @@
  *= require_self
  *= require_tree .
 */
+html {
+	background-color: #000000;
+}
 body {
 	width: 90%;
 	margin: 0 auto;
@@ -25,23 +28,31 @@ li {
 #nav, #feature, #footer {
 	margin: 1%;	
 }
+#logo {
+	float: left;
+	border-radius: 10px;
+	margin-left: 10px;
+	z-index: 1;
+	position: absolute;
+}
 .column1, .column2 {
 	width: 46%;
 	float: left;
 	margin: 1%;
 	padding: 5px 5px 5px 5px;
-	background-color: #EEE8AA;
+	background-color: #fdc82f;
 	border-radius: 10px;
 }
 .column2 {
 	margin-right: 0%;
 }
 #nav, #footer {
-	background-color: #EEE8AA;
+	background-color: #fdc82f;
 	padding: 0.5em 0;
 	width: 96%;
 	border-radius: 10px;
 }
+
 #feature, .article {
 	height: auto;
 	margin-bottom: 1em;
@@ -49,12 +60,21 @@ li {
 #feature, .columnSingle{
 	margin-left: auto;
 	margin-right: auto;
-	width: 40%;
+	width: 45%;
 	padding: 5px 5px 5px 5px;
-	background-color: #EEE8AA;
+	background-color: #fdc82f;
 	border-radius: 10px;
 }
 #feature p {
+	text-align: center;
+}
+#centeredContent {	
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	display: block;
+}
+.hmenu {
 	text-align: center;
 }
 header nav ul {
@@ -66,6 +86,7 @@ header nav ul {
 header nav ul li {
   display: inline;
 }
+
 #flash_notice, #flash_alert {
   padding: 5px 8px;
   margin: 10px 0;
@@ -83,8 +104,9 @@ table {
 	margin-left: auto;
 	margin-right: auto;
 	border-spacing: 0px;
-	background-color: #EEE8AA;
+	background-color: #fdc82f;
 	width: 99%;
+	align: center;
 }
 th, td {
 	padding: 5px 30px 5px 10px;
@@ -95,7 +117,7 @@ th, td {
 th {
 	border-radius: 10px;
 	text-align: left;
-	background-color: #EEE8AA;
+	background-color: #fdc82f;
 }
 
 fieldset {
@@ -105,6 +127,9 @@ fieldset {
 	background-color: #ffffff;
 	line-height: 1.6em;
 }	
+.button {
+	text-align: center;
+}
 input[type="text"] {
 	width: 120px;
 	border: 1px solid #d6d6d6;
@@ -115,4 +140,5 @@ input[type="text"]:focus, input[type="text"]:hover {
 	background-color: #d0e2f0;
 	border: 1px solid #999999;
 }
+
 

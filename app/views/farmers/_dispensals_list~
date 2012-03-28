@@ -1,5 +1,7 @@
+<h3>Dispensals</h3>
 <table>
   <tr>
+		<th>Date</th>
     <th>Seed</th>
     <th>Quantity</th>
     <th></th>
@@ -8,6 +10,7 @@
 
 <% @farmer.dispensals.each do |dispensal| %>
   <tr>
+		<td><%= dispensal.date %>
     <td><%= link_to dispensal.seed.humanize, dispensal.seed %></td>
     <td><%= dispensal.pounds %></td>
     <td><%= link_to 'More Details', dispensal %></td>

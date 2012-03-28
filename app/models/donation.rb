@@ -15,4 +15,8 @@ class Donation < ActiveRecord::Base
 		self.save
 		self.seed.update_quantity
 	end
+	
+	def date
+		self.updated_at.strftime("%m/%d/%Y")
+	end
 end

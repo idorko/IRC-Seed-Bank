@@ -14,7 +14,5 @@ class Donation < ActiveRecord::Base
 		self.quantity = 0
 		self.save
 		self.seed.update_quantity
-		puts "QUANTITY UPDATED"
-		puts self.seed.quantity
 	end
 end

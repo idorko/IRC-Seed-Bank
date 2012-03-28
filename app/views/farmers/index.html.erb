@@ -1,17 +1,18 @@
 <div class="article columnSingle">
-<h1>Listing farmers</h1>
-<%= link_to 'New Farmer', new_farmer_path %>
-<table>
-  <tr>
-    <th>Name</th>
+	<div id="centeredContent">
+		<h1>Listing farmers</h1>
+		<%= link_to 'New Farmer', new_farmer_path %>
+		<table>
+			<tr>
+				<th>Name</th>
 
-  </tr>
+			</tr>
 
-<% @farmers.each do |farmer| %>
-  <tr>
-    <td><%= link_to farmer.name, farmer %></td>
-  </tr>
-<% end %>
-</table>
-
+		<% @farmers.each do |farmer| %>
+			<tr>
+				<td><%= link_to farmer.name, farmer %></td>
+			</tr>
+		<% end %>
+		</table>
+	</div>
 </div>

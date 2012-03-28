@@ -7,11 +7,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
 	<div id="nav">
+		<div id="logo">
+			<%= image_tag'logo.jpg', :size => "50x50" %>
+		</div>
 		<ul class="hmenu">
 		  <%= render 'shared/navigation' %>
 		</ul>
 	</div>
+
 	<div id="content">
 		<%- flash.each do |name, msg| -%>
 		  <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>

@@ -1,15 +1,16 @@
-
-<p>
-  <b>Seed:</b>
-	<%= link_to @dispensal.seed.humanize, @dispensal.seed %>
-<p>
-  <b>Quantity:</b>
-  <%= @dispensal.pounds %>
-</p>
-<p> 
-	<b>Farmer:</b>
-	<%= link_to @farmer.name, @farmer %>
-</p>
-
-<%= button_to 'Delete Dispensal', @dispensal, confirm: 'Are you sure?', method: :delete %>
-<%= link_to 'Back', dispensals_path %>
+<div id="feature">
+	<p>
+		<b>Seed:</b>
+		<%= link_to @dispensal.seed.humanize, @dispensal.seed %>
+	<p>
+		<b>Quantity:</b>
+		<%= @dispensal.pounds %>
+	</p>
+	<p> 
+		<b>Farmer:</b>
+		<%= link_to @farmer.name, @farmer %>
+	</p>
+	<div class="button">
+		<%= button_to 'Delete Dispensal', @dispensal, confirm: 'Are you sure?', method: :delete %>
+	</div>
+</div>

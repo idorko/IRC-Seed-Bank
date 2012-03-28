@@ -2,6 +2,7 @@
 	<h3> Donations </h3>
 	<table>
 		<tr>
+			<th>Date</th>
 			<th>Donor</th>
 		  <th>Quantity</th>
 
@@ -9,6 +10,7 @@
 
 	<% @seed.donations.each do |donation| %>
 		<tr>
+			<td><%= donation.date %></td>
 		  <td><%= link_to donation.donor.name, donation.donor %></td>
 		  <td><%= donation.pounds %></td>
 		  <td><%= link_to 'More Details', donation %></td>

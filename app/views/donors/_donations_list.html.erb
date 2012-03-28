@@ -1,5 +1,6 @@
 <table>
   <tr>
+		<th>Date</th>
     <th>Seed</th>
     <th>Quantity</th>
     <th></th>
@@ -8,6 +9,7 @@
 
 <% @donor.donations.each do |donation| %>
   <tr>
+		<td><%= donation.date %></td>
 		<td><%= link_to donation.seed.humanize, donation.seed %>
     <td><%= donation.pounds %></td>
     <td><%= link_to 'More Details', donation %></td>

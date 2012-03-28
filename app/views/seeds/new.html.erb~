@@ -1,5 +1,7 @@
-<h1>New seed</h1>
+<div class="article columnSingle">
+	<div id="centeredContent">
+		<h1>New Seed</h1>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', seeds_path %>
+		<%= render 'form' %>	
+	</div<
+</div>

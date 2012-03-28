@@ -1,12 +1,14 @@
-<div class="listcol1">
+<div class="article column2">
 	<h3> Dispensals </h3>
 	<table>
 		<tr>
+			<th>Date</th>
 		  <th>Farmer</th>
 		  <th>Quantity</th>
 		</tr>
 	 <tr>
 		<% @seed.dispensals.each do |dispensal| %>
+			<td><%= dispensal.updated_at.strftime("%m/%d/%Y") %>
 		  <td><%= link_to dispensal.farmer.name, dispensal.farmer %></td>
 		  <td><%= dispensal.pounds %></td>
 		  <td><%= link_to 'More Details', dispensal %></td>
