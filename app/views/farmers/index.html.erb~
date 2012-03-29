@@ -1,19 +1,23 @@
-<div class="article columnSingle">
-	<div id="centeredContent">
-		<h1>Listing farmers</h1>
+<div class="article columnSingle">	
+	<div id="centeredContent">	
+			<h1>Farmers</h1>
 		<%= link_to 'New Farmer', new_farmer_path %>
 		<br />
 		<br />
-	<div class="apple_pagination">
-		<%= will_paginate %>
-		<table>
-		<% @farmers.each do |farmer| %>
-			<tr>
-				<td><%= link_to farmer.name, farmer %></td>
-			</tr>
+		<%= form_tag url_for(:controller => :farmers, :action => :index), :method => 'get' do %>
+			<b>Name: </b><%=text_field_tag :search, params[:search], :id => :search_field  %>
+			<%= submit_tag "Find Farmer", :name => nil %>
 		<% end %>
-		</table>
-		<%= will_paginate %>
-	</div>
+		<div class="apple_pagination">
+			<%= will_paginate %>
+			<table>
+			<% @farmers.each do |farmer| %>
+				<tr>
+					<td><%= link_to farmer.name, farmer %></td>
+				</tr>
+			<% end %>
+			</table>
+			<%= will_paginate %>
+		</div>
 	</div>
 </div>

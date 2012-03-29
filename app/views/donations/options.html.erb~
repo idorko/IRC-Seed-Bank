@@ -1,3 +1,4 @@
+<div class="article columnSingle">	
 <h3> Donation Information </h3>
 <b>Donor: </b><%= @donor.name %><br />
 <b>Seed: </b><%= @seed.humanize %><br />
@@ -17,11 +18,11 @@
     </div>
   <% end %>
 	<div class = "field">
-		<%= f.label :quantity %>
+		<b><%= f.label :quantity %>:</b>
 		<%= text_field_tag :pounds %>lb <%= text_field_tag :ounces %>oz
 	</div>
 	<div class = "field">
-		<%= f.label :value %>
+		<b><%= f.label :value %>:</b>
 		<%= f.text_field :value %>$
 	</div>
 	<div class="field">
@@ -31,10 +32,10 @@
 		<%= f.hidden_field :seed_id %>
 	</div>
 	<div class="field">
-		<%= f.hidden_field :quantity %>
+		<%= f.hidden_field :quantity, :value => 0 %>
 	</div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
-
+</div>

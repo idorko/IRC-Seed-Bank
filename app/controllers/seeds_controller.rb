@@ -19,7 +19,8 @@ class SeedsController < ApplicationController
   # GET /seeds/1.json
   def show
     @seed = Seed.find(params[:id])
-
+		@dispensals = @seed.dispensals.all.paginate(:page => params[:page], :order => 'updated_at DESC', :per_page => 10)
+		@donations = @seed.donations.all.paginate(:page => params[:page], :order => 'updated_at DESC', :per_page => 10)
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @seed }

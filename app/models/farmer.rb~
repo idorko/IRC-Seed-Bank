@@ -1,5 +1,14 @@
 class Farmer < ActiveRecord::Base
 
-	has_many :dispensals, :dependent => :delete_all
+	has_many :dispensals, :dependent => :destroy
+	has_many :donations, :dependent => :destroy
+
+	def self.search(search)
+		if search
+			find(:all, :conditions => ['last_name LIKE ?', "%#{search}%"])
+		else
+			find(:all)
+		end
+	end
 
 end

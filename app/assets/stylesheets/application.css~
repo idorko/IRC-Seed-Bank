@@ -42,6 +42,7 @@ li {
 	padding: 5px 5px 5px 5px;
 	background-color: #fdc82f;
 	border-radius: 10px;
+	text-align: center;
 }
 .column2 {
 	margin-right: 0%;
@@ -64,6 +65,7 @@ li {
 	padding: 5px 5px 5px 5px;
 	background-color: #fdc82f;
 	border-radius: 10px;
+	text-align: center;
 }
 #feature p {
 	text-align: center;
@@ -109,7 +111,7 @@ table {
 	align: center;
 }
 th, td {
-	padding: 5px 30px 5px 10px;
+	padding: 5px 5px 5px 10px;
 	border-spacing: 0px;
 	font-size: 90%;
 	text-align: center;
@@ -142,7 +144,7 @@ input[type="text"]:focus, input[type="text"]:hover {
 }
 .apple_pagination {
   background: #fdc82f;
-  border: 1px solid #e5e5e5;
+  border: 1px solid #fdc82f;
   text-align: center;
   padding: 1em;
   cursor: default; }

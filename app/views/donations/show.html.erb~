@@ -10,7 +10,7 @@
 
 	<p>
 		<b>Value:</b>
-		<%= @donation.value %>$
+		<%= format("%.2f", @donation.value) %>$
 	</p>
 
 	<p> 
@@ -20,4 +20,4 @@
 	<div class="button">
 		<%= button_to 'Delete Donation', @donation, confirm: 'Are you sure?', method: :delete %>
 	</div>
-</div<
+</div>

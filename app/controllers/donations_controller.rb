@@ -33,8 +33,13 @@ def options
   # GET /donations/1.json
   def show
     @donation = Donation.find(params[:id])
-		@donor = @donation.donor
-    respond_to do |format|
+		if @donation.donor		
+			@donor = @donation.donor
+		end
+		if @donation.farmer
+			@donor = @donation.farmer
+		end    
+		respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @donation }
     end

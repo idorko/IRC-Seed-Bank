@@ -7,12 +7,19 @@
 		  <th>Quantity</th>
 
 		</tr>
-
-	<% @seed.donations.each do |donation| %>
+	<div class="apple_pagination">
+		<%= will_paginate @donations %>
+	</div>
+	<% @donations.each do |donation| %>
 		<tr>
 			<td><%= donation.date %></td>
-		  <td><%= link_to donation.donor.name, donation.donor %></td>
-		  <td><%= donation.pounds %></td>
+			<% if donation.donor %>	
+		  	<td><%= link_to donation.donor.name, donation.donor %></td>
+			<% end %>
+			<% if donation.farmer %>	
+		  	<td><%= link_to donation.farmer.name, donation.farmer %></td>
+			<% end %>	  
+			<td><%= donation.pounds %></td>
 		  <td><%= link_to 'More Details', donation %></td>
 		</tr>
 	<% end %>

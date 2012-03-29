@@ -1,8 +1,9 @@
+require 'will_paginate/array'
 class FarmersController < ApplicationController
   # GET /farmers
   # GET /farmers.json
   def index
-    @farmers = Farmer.paginate(:page => params[:page])
+    @farmers = Farmer.search(params[:search]).paginate(:page => params[:page], :order => 'name ASC')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,7 +15,8 @@ class FarmersController < ApplicationController
   # GET /farmers/1.json
   def show
     @farmer = Farmer.find(params[:id])
-
+		@dispensals = @farmer.dispensals.all.paginate(:page => params[:page], :order => 'updated_at DESC', :per_page => 5)
+		@donations = @farmer.donations.all.paginate(:page => params[:page], :order => 'updated_at DESC', :per_page => 5)
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @farmer }

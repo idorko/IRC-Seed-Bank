@@ -22,7 +22,7 @@ farmer = Farmer.create! :name => 'Joe Farmer', :country => "Uganda", :language =
 puts 'Farmer Created:' << farmer.name
 
 puts 'SETTING UP DEFAULT DONATION'
-donation = Donation.create! :quantity => 100, :value => 10
+donation = Donation.create! :quantity => 100, :value => 10.5
 donation.donor = donor
 donation.seed = seed
 donation.save

@@ -4,4 +4,4 @@
 <%= render 'form' %>
 
 <%= link_to 'Back', dispensals_path %>
-</div>
+</div<
