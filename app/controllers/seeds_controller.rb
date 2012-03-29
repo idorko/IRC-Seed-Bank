@@ -1,4 +1,3 @@
-require 'will_paginate/array'
 class SeedsController < ApplicationController
 
 	before_filter :authenticate_user!
@@ -7,7 +6,7 @@ class SeedsController < ApplicationController
   # GET /seeds.json
   def index
 			if params[:seed_family]
-    		@seeds = Seed.find_all_by_family(params[:seed_family]).paginate(:page => params[:page], :order => 'variety, ASC')
+    		@seeds = Seed.find_all_by_family(params[:seed_family]).sort_by_variety.paginate(:page => params[:page], :order => 'variety, ASC', :per_page => 10)
 			end
     respond_to do |format|
       format.html # index.html.erb

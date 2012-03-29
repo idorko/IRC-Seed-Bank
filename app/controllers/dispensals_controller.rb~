@@ -1,5 +1,6 @@
+require 'will_paginate/array'
 class DispensalsController < ApplicationController
-
+	before_filter :authenticate_user!
 	def options
 		#setting final dispensal parameters before creation
 		@seed = Seed.find(params[:seed])
@@ -21,12 +22,7 @@ class DispensalsController < ApplicationController
   # GET /dispensals
   # GET /dispensals.json
   def index
-    @dispensals = Dispensal.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @dispensals }
-    end
   end
 
   # GET /dispensals/1

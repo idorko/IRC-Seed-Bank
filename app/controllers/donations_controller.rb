@@ -1,6 +1,6 @@
 class DonationsController < ApplicationController
-  
-def options
+  before_filter :authenticate_user!
+	def options
 		#setting final donation parameters before creation
 		@seed = Seed.find(params[:seed])
 		@donor = Donor.find(params[:donor_id])
@@ -21,12 +21,7 @@ def options
 	# GET /donations
   # GET /donations.json
   def index
-    @donations = Donation.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @donations }
-    end
   end
 
   # GET /donations/1

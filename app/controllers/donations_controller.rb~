@@ -1,6 +1,6 @@
 class DonationsController < ApplicationController
-  
-def options
+  before_filter :authenticate_user!
+	def options
 		#setting final donation parameters before creation
 		@seed = Seed.find(params[:seed])
 		@donor = Donor.find(params[:donor_id])

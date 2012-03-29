@@ -64,6 +64,25 @@ namespace :db do
 				seed.update_quantity
 			end
 		end
+		#generate a bunch of the same family 
+		#to check pagination		
+		family = Faker::Lorem.words(1)[0].to_s
+		puts "Family: " << family
+		15.times do
+			variety = Faker::Lorem.words(1)[0].to_s
+			spacing = "#{rand(1..5)}-#{rand(6..10)}"
+			maturity = rand(1..10)
+			common_names = Faker::Name.first_name + ", " + Faker::Name.first_name + ", " + Faker::Name.first_name + ", " + Faker::Name.first_name
+			description = Faker::Lorem.paragraph
+
+			seed = Seed.create!(:family => family,
+													:variety => variety,
+													:spacing => spacing,
+													:maturity => maturity,
+													:common_names => common_names,
+													:description => description)
+			seed.update_quantity
+		end
 	end
 end
 			

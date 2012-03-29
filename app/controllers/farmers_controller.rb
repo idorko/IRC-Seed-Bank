@@ -1,9 +1,9 @@
-require 'will_paginate/array'
 class FarmersController < ApplicationController
+	before_filter :authenticate_user!
   # GET /farmers
   # GET /farmers.json
   def index
-    @farmers = Farmer.search(params[:search]).paginate(:page => params[:page], :order => 'name ASC', :per_page => 15)
+    @farmers = Farmer.search(params[:search]).sort_by_name.paginate(:page => params[:page], :order => 'name ASC', :per_page => 10)
 
     respond_to do |format|
       format.html # index.html.erb
