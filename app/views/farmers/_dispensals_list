@@ -1,14 +1,14 @@
-<h3>Dispensals</h3>
 <table>
   <tr>
 		<th>Date</th>
     <th>Seed</th>
     <th>Quantity</th>
     <th></th>
-    <th></th>
   </tr>
-
-<% @farmer.dispensals.each do |dispensal| %>
+	<div class="apple_pagination">
+		<%= will_paginate @dispensals %>
+	</div>
+<% @dispensals.each do |dispensal| %>
   <tr>
 		<td><%= dispensal.date %></td>
     <td><%= link_to dispensal.seed.humanize, dispensal.seed %></td>
@@ -17,3 +17,4 @@
   </tr>
 <% end %>
 </table>
+

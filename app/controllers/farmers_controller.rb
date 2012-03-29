@@ -1,8 +1,9 @@
 class FarmersController < ApplicationController
+	before_filter :authenticate_user!
   # GET /farmers
   # GET /farmers.json
   def index
-    @farmers = Farmer.paginate(:page => params[:page], :order => 'name ASC')
+    @farmers = Farmer.search(params[:search]).sort_by_name.paginate(:page => params[:page], :order => 'name ASC', :per_page => 10)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,7 +15,8 @@ class FarmersController < ApplicationController
   # GET /farmers/1.json
   def show
     @farmer = Farmer.find(params[:id])
-
+		@dispensals = @farmer.dispensals.all.paginate(:page => params[:page], :order => 'updated_at DESC', :per_page => 5)
+		@donations = @farmer.donations.all.paginate(:page => params[:page], :order => 'updated_at DESC', :per_page => 5)
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @farmer }

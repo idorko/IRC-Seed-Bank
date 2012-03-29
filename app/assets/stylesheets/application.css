@@ -42,6 +42,7 @@ li {
 	padding: 5px 5px 5px 5px;
 	background-color: #fdc82f;
 	border-radius: 10px;
+	text-align: center;
 }
 .column2 {
 	margin-right: 0%;
@@ -64,6 +65,7 @@ li {
 	padding: 5px 5px 5px 5px;
 	background-color: #fdc82f;
 	border-radius: 10px;
+	text-align: center;
 }
 #feature p {
 	text-align: center;
@@ -109,16 +111,12 @@ table {
 	align: center;
 }
 th, td {
-	padding: 5px 30px 5px 10px;
+	padding: 5px 5px 5px 10px;
 	border-spacing: 0px;
 	font-size: 90%;
 	text-align: center;
 }
-th {
-	border-radius: 10px;
-	text-align: left;
-	background-color: #fdc82f;
-}
+
 
 fieldset {
 	width: 310px;

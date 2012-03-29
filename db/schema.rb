@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120326150839) do
+ActiveRecord::Schema.define(:version => 20120329162644) do
 
   create_table "dispensals", :force => true do |t|
     t.string   "family"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(:version => 20120326150839) do
     t.integer  "seed_id"
   end
 
+  add_index "dispensals", ["id", "updated_at", "farmer_id", "seed_id"], :name => "index_dispensals_on_id_and_updated_at_and_farmer_id_and_seed_id"
+
   create_table "donations", :force => true do |t|
     t.string   "family"
     t.string   "variety"
@@ -32,7 +34,10 @@ ActiveRecord::Schema.define(:version => 20120326150839) do
     t.integer  "donor_id"
     t.integer  "seed_id"
     t.float    "value"
+    t.integer  "farmer_id"
   end
+
+  add_index "donations", ["id", "updated_at", "donor_id", "seed_id"], :name => "index_donations_on_id_and_updated_at_and_donor_id_and_seed_id"
 
   create_table "donors", :force => true do |t|
     t.string   "name"
@@ -43,6 +48,8 @@ ActiveRecord::Schema.define(:version => 20120326150839) do
     t.string   "contact_email"
     t.string   "contact_phone"
   end
+
+  add_index "donors", ["id", "name"], :name => "index_donors_on_id_and_name"
 
   create_table "donors_seeds", :id => false, :force => true do |t|
     t.integer "donor_id"
@@ -58,17 +65,21 @@ ActiveRecord::Schema.define(:version => 20120326150839) do
     t.string   "farm_site"
   end
 
+  add_index "farmers", ["id", "name"], :name => "index_farmers_on_id_and_name"
+
   create_table "seeds", :force => true do |t|
     t.string   "family"
     t.string   "variety"
     t.integer  "quantity"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
-    t.integer  "spacing"
+    t.string   "spacing"
     t.string   "maturity"
     t.string   "common_names"
     t.string   "description"
   end
+
+  add_index "seeds", ["family", "id"], :name => "index_seeds_on_family_and_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

@@ -1,6 +1,7 @@
 class Donation < ActiveRecord::Base
 	belongs_to :donor
 	belongs_to :seed
+	belongs_to :farmer
 	before_destroy :update_seeds
 	def pounds
 		return "#{self.quantity / 16} lbs, #{self.quantity % 16} oz"

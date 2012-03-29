@@ -17,8 +17,14 @@
 </p>
 <%= link_to 'Edit', edit_farmer_path(@farmer) %> 
 </div>
-<div class="article columnSingle">
+<div class="article column1">
+	<h3> Donations </h3>
+	<%= link_to 'New Donation', :controller => :donations, :action => :new, :donor_id => @farmer %>	
+	<%= render 'donors/donations_list' %>
+</div>
+<div class="article column2">
+	<h3> Dispensals </h3>
+	<%= link_to 'New Dispensal', :controller => :dispensals, :action => :new, :farmer_id => @farmer %>	
 	<%= render 'dispensals_list' %>
-	<%= link_to 'Dispense Seeds', :controller => :dispensals, :action => :new, :farmer_id => @farmer %>
 </div>
 

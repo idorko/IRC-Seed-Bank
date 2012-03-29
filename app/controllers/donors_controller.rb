@@ -5,7 +5,7 @@ class DonorsController < ApplicationController
   # GET /donors
   # GET /donors.json
   def index
-    @donors = Donor.paginate(:page => params[:page], :order => 'name ASC')
+    @donors = Donor.search(params[:search]).sort_by_name.paginate( :page => params[:page], :order => 'name ASC', :per_page => 10 )
 	
     respond_to do |format|
       format.html # index.html.erb
@@ -17,7 +17,7 @@ class DonorsController < ApplicationController
   # GET /donors/1.json
   def show
     @donor = Donor.find(params[:id])
-
+		@donations = @donor.donations.all.paginate(:page => params[:page], :order => 'updated_at DESC', :per_page => 5)
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @donor }

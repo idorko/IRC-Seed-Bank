@@ -10,7 +10,7 @@
 
 	<p>
 		<b>Value:</b>
-		<%= @donation.value %>$
+		$<%= format("%.2f", @donation.value) %>
 	</p>
 
 	<p> 

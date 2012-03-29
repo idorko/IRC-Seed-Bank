@@ -4,7 +4,7 @@
 		<%= select_tag("seed_family", options_for_select(Seed.family_list, Seed.family_list)) %>
 	</div>
 	<div class="field">
-		<%= hidden_field_tag 'farmer_id', params[:donor_id] %>
+		<%= hidden_field_tag 'donor_id', params[:donor_id] %>
 	</div>
   <div class="actions">
     <%= submit_tag "Find Seeds", :name => nil %>

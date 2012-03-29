@@ -1,32 +1,34 @@
-<h3> Dispensal Information </h3>
-<b>Farmer: </b><%= @farmer.name %><br />
-<b>Seed: </b><%= @seed.humanize %><br />
-<b>Quantity: </b><%= @seed.pounds %><br/>
-<br />
-<br />
-<%= form_for(@dispensal) do |f| %>
-  <% if @dispensal.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@dispensal.errors.count, "error") %> prohibited this dispensal from being processed:</h2>
+<div class="article columnSingle">
+	<h3> Dispensal Information </h3>
+	<b>Farmer: </b><%= @farmer.name %><br />
+	<b>Seed: </b><%= @seed.humanize %><br />
+	<b>Quantity: </b><%= @seed.pounds %><br/>
+	<br />
+	<br />
+	<%= form_for(@dispensal) do |f| %>
+		<% if @dispensal.errors.any? %>
+		  <div id="error_explanation">
+		    <h2><%= pluralize(@dispensal.errors.count, "error") %> prohibited this dispensal from being processed:</h2>
 
-      <ul>
-      <% @dispensal.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-	<div class = "field">
-		<%= f.label :quantity %>
-		<%= f.text_field :quantity %>
-	<div class="field">
-		<%= f.hidden_field :farmer_id %>
+		    <ul>
+		    <% @dispensal.errors.full_messages.each do |msg| %>
+		      <li><%= msg %></li>
+		    <% end %>
+		    </ul>
+		  </div>
+		<% end %>
+		<div class = "field">
+			<b><%= f.label :quantity %>:</b>
+			<%= text_field_tag :pounds %>lb <%= text_field_tag :ounces %>oz
 	</div>
-	<div class="field">
-		<%= f.hidden_field :seed_id %>
-	</div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
-
+		<div class="field">
+			<%= f.hidden_field :farmer_id %>
+		</div>
+		<div class="field">
+			<%= f.hidden_field :seed_id %>
+		</div>
+		<div class="actions">
+		  <%= f.submit %>
+		</div>
+	<% end %>
+</div>

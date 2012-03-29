@@ -9,11 +9,11 @@
 </p>
 <p>
   <b>Spacing:</b>
-  <%= @seed.spacing %>
+  <%= @seed.spacing %> in
 </p>
 <p>
   <b>Maturity:</b>
-  <%= @seed.maturity %>
+  <%= @seed.maturity %> weeks
 </p>
 <p>
   <b>Common Names:</b>
@@ -22,6 +22,7 @@
 <p>
 	<b>Description:</b><br />
 	<%= @seed.description %>
+</p>
 <%= link_to "Edit Seed", edit_seed_path(@seed) %>
 </div>
 	<%= render "donor_list" %>

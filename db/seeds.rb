@@ -10,7 +10,7 @@ user = User.create! :email => 'user@example.com', :password => 'please', :passwo
 puts 'New user created: ' << user.email
 
 puts 'SETTING UP DEFAULT SEED'
-seed = Seed.create! :variety => 'Bud', :family => 'Rose', :spacing => 5, :maturity => 3, :common_names => "none"
+seed = Seed.create! :variety => 'Bud', :family => 'Rose', :spacing => "5-10", :maturity => 3, :common_names => "none"
 puts 'Seed created: ' << seed.humanize
 
 puts 'SETTING UP DEFAULT DONOR'

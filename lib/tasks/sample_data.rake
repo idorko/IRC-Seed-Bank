@@ -26,7 +26,7 @@ namespace :db do
 			#create test seeds
 			family = Faker::Lorem.words(1)[0].to_s
 			variety = Faker::Lorem.words(1)[0].to_s
-			spacing = rand(1..10)
+			spacing = "#{rand(1..5)}-#{rand(6..10)}"
 			maturity = rand(1..10)
 			common_names = Faker::Name.first_name + ", " + Faker::Name.first_name + ", " + Faker::Name.first_name + ", " + Faker::Name.first_name
 			description = Faker::Lorem.paragraph
@@ -38,20 +38,49 @@ namespace :db do
 													:common_names => common_names,
 													:description => description)
 			
-			#create test donation
-			donation = Donation.create!(:quantity => rand(100..300), :value => rand(1..100))
-			donation.donor = donor
-			donation.seed = seed
-			donation.save
-			seed.donations << donation
-			seed.update_quantity
+			10.times do |m|
+				#create test donation
+				donation = Donation.create!(:quantity => rand(100..300), :value => rand(1..100))
+				donation.donor = donor
+				donation.seed = seed
+				donation.save
+				seed.donations << donation
+				seed.update_quantity
 
-			#create test dispensal
-			dispensal = Dispensal.create!(:quantity => rand(1..99))
-			dispensal.farmer = farmer
-			dispensal.seed = seed
-			dispensal.save
-			seed.dispensals << dispensal
+				#create test donation for farmer
+				donation = Donation.create!(:quantity => rand(100..300), :value => rand(1..100))
+				donation.farmer = farmer
+				donation.seed = seed
+				donation.save
+				seed.donations << donation
+				seed.update_quantity
+
+				#create test dispensal
+				dispensal = Dispensal.create!(:quantity => rand(1..99))
+				dispensal.farmer = farmer
+				dispensal.seed = seed
+				dispensal.save
+				seed.dispensals << dispensal
+				seed.update_quantity
+			end
+		end
+		#generate a bunch of the same family 
+		#to check pagination		
+		family = Faker::Lorem.words(1)[0].to_s
+		puts "Family: " << family
+		15.times do
+			variety = Faker::Lorem.words(1)[0].to_s
+			spacing = "#{rand(1..5)}-#{rand(6..10)}"
+			maturity = rand(1..10)
+			common_names = Faker::Name.first_name + ", " + Faker::Name.first_name + ", " + Faker::Name.first_name + ", " + Faker::Name.first_name
+			description = Faker::Lorem.paragraph
+
+			seed = Seed.create!(:family => family,
+													:variety => variety,
+													:spacing => spacing,
+													:maturity => maturity,
+													:common_names => common_names,
+													:description => description)
 			seed.update_quantity
 		end
 	end

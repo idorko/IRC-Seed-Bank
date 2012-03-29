@@ -1,4 +1,5 @@
-<%= form_tag options_dispensals_path, :method => 'get' do %>
+<div class="article columnSingle">	
+<%= form_tag options_donations_path, :method => 'get' do %>
 	<div class="form_row">
     <label for="seeds">Choose Seed:</label>
 		<%= render "shared/seed_list" %>
@@ -10,3 +11,4 @@
     <%= submit_tag "Select Seed", :name => nil %>
   </div>
 <% end %>
+</div>
