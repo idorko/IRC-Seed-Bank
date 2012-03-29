@@ -3,33 +3,29 @@
 	<div id="centeredContent">	
 			<h1> Seeds</h1>
 		<%= link_to 'New Seed', new_seed_path %>	
+		<br /><br />
 		<%= form_tag url_for(:controller => :seeds, :action => :index), :method => 'get' do %>
 			<b>Family:</b><%= select_tag("seed_family", options_for_select(Seed.family_list, Seed.family_list)) %>
-			<br />
 			<%= submit_tag "Find Seeds", :name => nil %>
 		<% end %>
-	</div>
-</div>
 
-	<% if @seeds %>
-		<div class="article columnSingle">		
-		<h1>Listing <%= @seeds.first.family.capitalize %></h1>
-		<div class="apple_pagination">		
-			<%= will_paginate %>
-			<table>
-				<tr>
-					<th>Seed</th>
-					<th>Quantity</th>
-				</tr>
-			<% @seeds.each do |seed| %>
-				<tr>
-					<td><%= link_to seed.humanize, seed %></td>
-					<td><%= seed.pounds %></td>  
-				</tr>
-			<% end %>
-			</table>
-			<%= will_paginate %>
-		</div>
-	</div>
+	<% if @seeds %>	
+			<h1>Listing <%= @seeds.first.family.capitalize %></h1>
+			<div class="apple_pagination">		
+				<%= will_paginate %>
+				<table>
+					<tr>
+						<th>Seed</th>
+						<th>Quantity</th>
+					</tr>
+				<% @seeds.each do |seed| %>
+					<tr>
+						<td><%= link_to seed.humanize, seed %></td>
+						<td><%= seed.pounds %></td>  
+					</tr>
+				<% end %>
+				</table>
+				<%= will_paginate %>
+			</div>
 	<% end %>
-
+		</div>

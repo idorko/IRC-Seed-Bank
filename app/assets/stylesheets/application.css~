@@ -116,11 +116,7 @@ th, td {
 	font-size: 90%;
 	text-align: center;
 }
-th {
-	border-radius: 10px;
-	text-align: left;
-	background-color: #fdc82f;
-}
+
 
 fieldset {
 	width: 310px;
