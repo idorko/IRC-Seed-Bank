@@ -29,6 +29,10 @@ class Seed < ActiveRecord::Base
 		"#{self.variety} #{self.family}"
 	end
 
+	def name
+		self.humanize
+	end
+
 	def self.family_list
 		#list all unique families
 		@families = []

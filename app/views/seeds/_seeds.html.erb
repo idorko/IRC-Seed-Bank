@@ -1,0 +1,14 @@
+<div class="apple_pagination">		
+	<%= will_paginate %>		
+		<table>
+			<tr>
+				<th>Seed</th>
+					<th>Quantity</th>
+			</tr>
+			<% @seeds.each do |seed| %>
+				<tr>
+					<td><%= link_to seed.humanize, seed %></td>
+					<td><%= seed.pounds %></td>  					</tr>
+			<% end %>
+		</table>
+</div>

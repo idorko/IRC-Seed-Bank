@@ -6,12 +6,13 @@ class SeedsController < ApplicationController
   # GET /seeds.json
   def index
 			if params[:seed_family]
-    		@seeds = Seed.find_all_by_family(params[:seed_family]).sort_by_variety.paginate(:page => params[:page], :order => 'variety, ASC', :per_page => 10)
+    		@seeds = Seed.find_all_by_family(params[:seed_family]).sort_by_variety.paginate(:page => params[:page], :order => 'variety, ASC', :per_page => 10, :remote => true)
 			end
     respond_to do |format|
       format.html # index.html.erb
+			format.js 
       format.json { render json: @seeds }
-    end
+		end
   end
 
   # GET /seeds/1
@@ -84,5 +85,6 @@ class SeedsController < ApplicationController
       format.html { redirect_to seeds_url }
       format.json { head :no_content }
     end
+
   end
 end

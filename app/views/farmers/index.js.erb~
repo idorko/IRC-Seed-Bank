@@ -1,0 +1,2 @@
+$('#farmer_list').html("<%=j render 'farmer_list', :objects => @farmers %>");
+$('.pagination a').attr('data-remote', 'true');
