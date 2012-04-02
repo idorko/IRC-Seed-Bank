@@ -1,0 +1,8 @@
+<div class="apple_pagination">
+		<%= will_paginate @objects %>		
+		<table>
+			<% objects.each do |object| %>
+				<tr><td><%= link_to object.name, object %><td></tr>
+			<% end %>
+		</table>
+</div>

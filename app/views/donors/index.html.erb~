@@ -8,16 +8,9 @@
 			<b>Company Name: </b><%=text_field_tag :search, params[:search], :id => :search_field  %>
 			<%= submit_tag "Find Donor", :name => nil %>
 		<% end %>
-		<div class="apple_pagination">
-			<%= will_paginate %>
-			<% @donors.each do |donor| %>
-		<table>
-				<tr>
-					<td><%= link_to donor.name, donor %></td>
-				</tr>
-			<% end %>
-			</table>
-			<%= will_paginate %>
-		</div>
+		
+		<div id="donor_list">
+		</div>		
+
 	</div>
 </div>

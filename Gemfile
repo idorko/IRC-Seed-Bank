@@ -21,6 +21,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'ajax_pagination'
 gem "rspec-rails", ">= 2.8.1", :group =>[:development, :test]
 gem "factory_girl_rails", ">= 1.7.0", :group => :test
 gem "email_spec", ">= 1.2.1", :group => :test

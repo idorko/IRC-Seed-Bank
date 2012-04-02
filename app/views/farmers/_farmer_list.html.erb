@@ -1,0 +1,10 @@
+<div class="apple_pagination">
+	<%= will_paginate %>
+	<table>
+		<% @farmers.each do |farmer| %>
+		<tr>
+			<td><%= link_to farmer.name, farmer %></td>
+		</tr>
+		<% end %>
+	</table>
+</div>

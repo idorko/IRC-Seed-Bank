@@ -14,4 +14,19 @@
 //= require jquery_ujs
 //= require_tree .
 
+$(document).ready(function() {
+    ajaxifyPagination();
+});
+
+function ajaxifyPagination() {
+    $(".pagination a").click(function() {
+        $.ajax({
+          type: "GET",
+          url: $(this).attr("href"),
+          dataType: "script"
+        });
+        return false;
+    });
+}
+
 

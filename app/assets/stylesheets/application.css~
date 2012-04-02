@@ -8,8 +8,10 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
+ *= require ajax_pagination
  *= require_self
  *= require_tree .
+
 */
 html {
 	background-color: #000000;
@@ -88,7 +90,7 @@ header nav ul {
 header nav ul li {
   display: inline;
 }
-
+	
 #flash_notice, #flash_alert {
   padding: 5px 8px;
   margin: 10px 0;
@@ -142,10 +144,12 @@ input[type="text"]:focus, input[type="text"]:hover {
   background: #fdc82f;
   border: 1px solid #fdc82f;
   text-align: center;
-  padding: 1em;
   cursor: default; }
+	.apple_pagination li {
+		display: block
+	}
   .apple_pagination a, .apple_pagination span {
-    padding: 0.2em 0.3em; }
+     }
   .apple_pagination .disabled {
     color: #aaaaaa; }
   .apple_pagination .current {
