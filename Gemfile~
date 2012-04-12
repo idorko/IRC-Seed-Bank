@@ -4,8 +4,14 @@ gem 'rails', '3.2.2'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
+group :production, :staging do
+	gem 'pg'
+end
 
-gem 'sqlite3'
+group :development, :test do
+	gem 'sqlite3-ruby', :require => 'sqlite3'
+	gem 'annotate'
+end
 
 
 # Gems used only for assets and not required
@@ -21,6 +27,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'ajax_pagination'
 gem "rspec-rails", ">= 2.8.1", :group =>[:development, :test]
 gem "factory_girl_rails", ">= 1.7.0", :group => :test
 gem "email_spec", ">= 1.2.1", :group => :test
