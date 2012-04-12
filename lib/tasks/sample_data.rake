@@ -26,8 +26,8 @@ namespace :db do
 			#create test seeds
 			family = Faker::Lorem.words(1)[0].to_s
 			variety = Faker::Lorem.words(1)[0].to_s
-			spacing = "#{rand(1..5)}-#{rand(6..10)}"
-			maturity = rand(1..10)
+			spacing = "#{rand(5)+1}-#{rand(4)+6}"
+			maturity = rand(10)+1
 			common_names = Faker::Name.first_name + ", " + Faker::Name.first_name + ", " + Faker::Name.first_name + ", " + Faker::Name.first_name
 			description = Faker::Lorem.paragraph
 
@@ -40,7 +40,7 @@ namespace :db do
 			
 			10.times do |m|
 				#create test donation
-				donation = Donation.create!(:quantity => rand(100..300), :value => rand(1..100))
+				donation = Donation.create!(:quantity => rand(200)+100, :value => rand(100))
 				donation.donor = donor
 				donation.seed = seed
 				donation.save
@@ -48,7 +48,7 @@ namespace :db do
 				seed.update_quantity
 
 				#create test donation for farmer
-				donation = Donation.create!(:quantity => rand(100..300), :value => rand(1..100))
+				donation = Donation.create!(:quantity => rand(200)+100, :value => rand(100))
 				donation.farmer = farmer
 				donation.seed = seed
 				donation.save
@@ -56,7 +56,7 @@ namespace :db do
 				seed.update_quantity
 
 				#create test dispensal
-				dispensal = Dispensal.create!(:quantity => rand(1..99))
+				dispensal = Dispensal.create!(:quantity => rand(99)+1)
 				dispensal.farmer = farmer
 				dispensal.seed = seed
 				dispensal.save
@@ -70,8 +70,8 @@ namespace :db do
 		puts "Family: " << family
 		15.times do
 			variety = Faker::Lorem.words(1)[0].to_s
-			spacing = "#{rand(1..5)}-#{rand(6..10)}"
-			maturity = rand(1..10)
+			spacing = "#{rand(5)}-#{rand(4)+6}"
+			maturity = rand(10)
 			common_names = Faker::Name.first_name + ", " + Faker::Name.first_name + ", " + Faker::Name.first_name + ", " + Faker::Name.first_name
 			description = Faker::Lorem.paragraph
 
