@@ -5,6 +5,7 @@ class Seed < ActiveRecord::Base
 
 	validates :family, :presence => true
 	validates :variety, :presence => true
+	validates_length_of :description, :
 	
 	def pounds
 		return "#{self.quantity / 16} lbs, #{self.quantity % 16} oz"
@@ -30,7 +31,7 @@ class Seed < ActiveRecord::Base
 	end
 
 	def name
-		humanize
+		self.humanize
 	end
 
 	def self.family_list

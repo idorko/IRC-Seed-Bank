@@ -5,6 +5,7 @@ class Seed < ActiveRecord::Base
 
 	validates :family, :presence => true
 	validates :variety, :presence => true
+	validates_length_of :description, :in => 1..255, :allow_blank => true
 	
 	def pounds
 		return "#{self.quantity / 16} lbs, #{self.quantity % 16} oz"
