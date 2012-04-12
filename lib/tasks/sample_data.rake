@@ -29,8 +29,7 @@ namespace :db do
 			spacing = "#{rand(5)+1}-#{rand(4)+6}"
 			maturity = rand(10)+1
 			common_names = Faker::Name.first_name + ", " + Faker::Name.first_name + ", " + Faker::Name.first_name + ", " + Faker::Name.first_name
-			description = Faker::Lorem.paragraph
-
+			description = Faker::Lorem.sentence
 			seed = Seed.create!(:family => family,
 													:variety => variety,
 													:spacing => spacing,
@@ -73,7 +72,7 @@ namespace :db do
 			spacing = "#{rand(5)}-#{rand(4)+6}"
 			maturity = rand(10)
 			common_names = Faker::Name.first_name + ", " + Faker::Name.first_name + ", " + Faker::Name.first_name + ", " + Faker::Name.first_name
-			description = Faker::Lorem.paragraph
+			description = Faker::Lorem.sentence
 
 			seed = Seed.create!(:family => family,
 													:variety => variety,
