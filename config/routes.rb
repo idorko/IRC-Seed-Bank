@@ -16,7 +16,7 @@ IrcSeedBank::Application.routes.draw do
 
   resources :seeds
 
-	devise_for :users
+	devise_for :users, :controllers => {:registrations => "registrations"}
 	resources :users, :only => :show	
 	authenticated :user do
 	  root :to => 'home#index'
