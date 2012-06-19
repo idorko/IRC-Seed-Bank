@@ -10,7 +10,9 @@
 
 	<p>
 		<b>Value:</b>
-		$<%= format("%.2f", @donation.value) %>
+		<% if @donation.value != nil %>
+			$<%= format("%.2f", @donation.value) %>
+		<% end %>	
 	</p>
 
 	<p> 
