@@ -8,15 +8,15 @@ class Seed < ActiveRecord::Base
 	validates_length_of :description, :in => 1..255, :allow_blank => true
 	
 	def pounds
-		return "#{self.quantity / 16} lbs, #{self.quantity % 16} oz"
+		return "#{self.quantity.floor / 16} lbs, #{((self.quantity % 16)*1000).round.to_f / 1000} oz"
 	end
 	def ounces
-		return "#{self.quantity} oz"
+		return "#{((self.quantity % 16)*1000).round.to_f / 1000} oz"
 	end
 	def update_quantity
 		#get total quantity of seeds in bank based on 
 		#donations and dispensals
-		total = 0
+		total = 0.0
 		donations.each do |donation|
 			total += donation.quantity
 		end

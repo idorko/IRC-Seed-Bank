@@ -11,24 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120329162644) do
+ActiveRecord::Schema.define(:version => 20120619011929) do
 
   create_table "dispensals", :force => true do |t|
     t.string   "family"
     t.string   "variety"
-    t.integer  "quantity"
+    t.float    "quantity"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "farmer_id"
     t.integer  "seed_id"
   end
 
-  add_index "dispensals", ["id", "updated_at", "farmer_id", "seed_id"], :name => "index_dispensals_on_id_and_updated_at_and_farmer_id_and_seed_id"
+  add_index "dispensals", ["id", "updated_at", "farmer_id", "seed_id"], :name => "altered_dispensals_index"
 
   create_table "donations", :force => true do |t|
     t.string   "family"
     t.string   "variety"
-    t.integer  "quantity"
+    t.float    "quantity"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "donor_id"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(:version => 20120329162644) do
     t.integer  "farmer_id"
   end
 
-  add_index "donations", ["id", "updated_at", "donor_id", "seed_id"], :name => "index_donations_on_id_and_updated_at_and_donor_id_and_seed_id"
+  add_index "donations", ["id", "updated_at", "donor_id", "seed_id"], :name => "altered_donations_index"
 
   create_table "donors", :force => true do |t|
     t.string   "name"
@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(:version => 20120329162644) do
   create_table "seeds", :force => true do |t|
     t.string   "family"
     t.string   "variety"
-    t.integer  "quantity"
+    t.float    "quantity"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
     t.string   "spacing"

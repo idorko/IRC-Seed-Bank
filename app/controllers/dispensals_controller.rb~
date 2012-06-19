@@ -1,4 +1,4 @@
-require 'will_paginate/array'
+
 class DispensalsController < ApplicationController
 	before_filter :authenticate_user!
 	def options

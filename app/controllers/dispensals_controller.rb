@@ -61,7 +61,7 @@ class DispensalsController < ApplicationController
 		@dispensal.seed = @seed
 		@farmer = @dispensal.farmer
     respond_to do |format|
-				@dispensal.update_attribute(:quantity, params[:pounds].to_i*16 + params[:ounces].to_i)	
+				@dispensal.update_attribute(:quantity, params[:pounds].to_i*16 + params[:ounces].to_f)	
 			if @dispensal.quantity > @seed.quantity
 			 redirect_to(options_dispensals_path( :seed => params[:dispensal][:seed_id], :farmer_id => @farmer.id), alert: 'Not enough seeds.') and return false
 			end
