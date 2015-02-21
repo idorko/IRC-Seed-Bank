@@ -23,27 +23,27 @@
 		</div>
 		<div class = "field">
 			<b><%= f.label :planting_date %>:</b>
-			<%= text_field_tag :planting_date, nil, :class => "datepicker" %>
+			<%= f.text_field :planting_date, nil, :class => "datepicker" %>
 		</div>
 		<div class = "field">
 			<b><%= f.label :harvest_date %>:</b>
-			<%= text_field_tag :harvest_date, nil, :class => "datepicker" %>
+			<%= f.text_field :harvest_date, nil, :class => "datepicker" %>
 		</div>
 		<div class = "field">
 			<b><%= f.label :soil_test_zone %>:</b>
-			<%= text_field_tag :soil_test_zone %>
+			<%= f.text_field :soil_test_zone %>
 		</div>
 		<div class = "field">
 			<b><%= f.label :row_feet %>:</b>
-			<%= text_field_tag :row_feet %>ft
+			<%= f.text_field :row_feet %>ft
 		</div>
 		<div class = "field">
 			<b><%= f.label :germination_rate %>:</b>
-			<%= text_field_tag :germination_rate %>%
+			<%= f.text_field :germination_rate %>%
 		</div>
 		<div class = "field">
 			<b><%= f.label :water_usage %>:</b>
-			<%= text_field_tag :water_usage %>ft^3
+			<%= f.text_field :water_usage %>ft^3
 		</div>
 	  <div class="field">
 		<%= f.label :tissue_samples %><br />

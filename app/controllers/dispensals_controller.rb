@@ -48,11 +48,6 @@ class DispensalsController < ApplicationController
     end
   end
 
-  # GET /dispensals/1/edit
-  def edit
-    @dispensal = Dispensal.find(params[:id])
-  end
-
   # POST /dispensals
   # POST /dispensals.json
   def create
@@ -75,6 +70,11 @@ class DispensalsController < ApplicationController
         format.json { render json: @dispensal.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  # GET /dispensals/1/edit
+  def edit
+    @dispensal = Dispensal.find(params[:id])
   end
 
   # PUT /dispensals/1

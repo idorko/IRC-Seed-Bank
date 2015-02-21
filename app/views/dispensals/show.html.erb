@@ -10,6 +10,41 @@
 		<b>Farmer:</b>
 		<%= link_to @farmer.name, @farmer %>
 	</p>
+	<p>
+		<b>Planting Date:</b>
+		<%= @dispensal.planting_date %>
+	</p>
+	<p>
+		<b>Harvest Date:</b>
+		<%= @dispensal.harvest_date %>
+	</p>
+	<p>
+		<b>Soil Test Zone:</b>
+		<%= @dispensal.soil_test_zone %>
+	</p>
+	<p>
+		<b>Row Feet:</b>
+		<%= @dispensal.row_feet %> ft
+	</p>
+	<p>
+		<b>Germination Rate:</b>
+		<%= @dispensal.germination_rate %> %
+	</p>	
+	<p>
+		<b>Water Usage:</b>
+		<%= @dispensal.water_usage %> ft^3
+	</p>
+	<p>
+		<b>Tissue Samples:</b>
+		<%= @dispensal.tissue_samples %>
+	</p>
+	<p>
+		<b>Comments:</b>
+		<%= @dispensal.comments %>
+	</p>	
+	<div class="button">
+		<%= link_to "Edit Dispensal", edit_dispensal_path(@dispensal) %>
+	</div>
 	<div class="button">
 		<%= button_to 'Delete Dispensal', @dispensal, confirm: 'Are you sure?', method: :delete %>
 	</div>

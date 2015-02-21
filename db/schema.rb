@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150221192410) do
+ActiveRecord::Schema.define(:version => 20150221232203) do
 
   create_table "dispensals", :force => true do |t|
     t.string   "family"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(:version => 20150221192410) do
     t.float    "water_usage"
     t.integer  "soil_test_zone"
     t.integer  "row_feet"
-    t.float    "germenation_rate"
+    t.float    "germination_rate"
   end
 
   add_index "dispensals", ["id", "updated_at", "farmer_id", "seed_id"], :name => "dispensals_index"
