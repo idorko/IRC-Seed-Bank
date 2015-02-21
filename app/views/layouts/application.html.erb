@@ -2,8 +2,10 @@
 <html>
 <head>
   <title>IrcSeedBank</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+   <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -29,4 +31,9 @@
 	</div>
 <% end %>
 </body>
+<script type="text/javascript">
+	$(document).ready(function () {
+		$('.datepicker').datepicker();
+	});
+</script>
 </html>
