@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120619011929) do
+ActiveRecord::Schema.define(:version => 20150221191813) do
 
   create_table "dispensals", :force => true do |t|
     t.string   "family"
@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(:version => 20120619011929) do
     t.string   "maturity"
     t.string   "common_names"
     t.string   "description"
+    t.string   "comments"
   end
 
   add_index "seeds", ["family", "id"], :name => "index_seeds_on_family_and_id"
