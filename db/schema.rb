@@ -11,16 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150221191813) do
+ActiveRecord::Schema.define(:version => 20150221192410) do
 
   create_table "dispensals", :force => true do |t|
     t.string   "family"
     t.string   "variety"
     t.float    "quantity"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.integer  "farmer_id"
     t.integer  "seed_id"
+    t.string   "comments"
+    t.string   "tissue_samples"
+    t.date     "planting_date"
+    t.date     "harvest_date"
+    t.float    "water_usage"
+    t.integer  "soil_test_zone"
+    t.integer  "row_feet"
+    t.float    "germenation_rate"
   end
 
   add_index "dispensals", ["id", "updated_at", "farmer_id", "seed_id"], :name => "dispensals_index"
