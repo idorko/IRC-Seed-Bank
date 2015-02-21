@@ -1,17 +1,17 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.2'
+gem 'rails', '>= 3.2.2'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :production, :staging do
-	gem 'pg'
+	gem 'sqlite3'
 	gem 'thin'
 end
 
 group :development, :test do
-	gem 'sqlite3-ruby', :require => 'sqlite3'
+	gem 'pg' 
 	gem 'annotate'
 end
 
@@ -27,7 +27,7 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 end
-
+gem 'json', '> 1.6.5'
 gem 'jquery-rails'
 gem 'ajax_pagination'
 gem "rspec-rails", ">= 2.8.1", :group =>[:development, :test]
@@ -40,7 +40,9 @@ gem "launchy", ">= 2.0.5", :group => :test
 gem "devise", ">= 2.0.4"
 gem 'faker', '>=0.3.1'
 gem 'will_paginate', '>=3.0.pre2'
+gem 'test-unit'
 # To use ActiveModel has_secure_password
+
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Jbuilder templates for JSON

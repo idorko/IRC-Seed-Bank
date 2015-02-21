@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(:version => 20120619011929) do
     t.integer  "seed_id"
   end
 
-  add_index "dispensals", ["id", "updated_at", "farmer_id", "seed_id"], :name => "altered_dispensals_index"
+  add_index "dispensals", ["id", "updated_at", "farmer_id", "seed_id"], :name => "dispensals_index"
 
   create_table "donations", :force => true do |t|
     t.string   "family"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(:version => 20120619011929) do
     t.integer  "farmer_id"
   end
 
-  add_index "donations", ["id", "updated_at", "donor_id", "seed_id"], :name => "altered_donations_index"
+  add_index "donations", ["id", "updated_at", "donor_id", "seed_id"], :name => "donations_index"
 
   create_table "donors", :force => true do |t|
     t.string   "name"

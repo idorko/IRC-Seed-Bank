@@ -1,0 +1,12 @@
+
+<div class="article columnSingle">
+	<%= form_tag("/seeds/add_quantity/" + @seed.id.to_s, method: "post") do %>
+		<h1>Add Quantity To <%= @seed.humanize %></h1>
+
+		<div class = "field">
+			<b>Quantity:</b>
+			<%= text_field_tag :grams %>g
+		</div>
+		<%= submit_tag("Add") %>
+	<% end %>
+</div>

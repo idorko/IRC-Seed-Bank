@@ -5,9 +5,9 @@ class SeedsController < ApplicationController
   # GET /seeds
   # GET /seeds.json
   def index
-			if params[:seed_family]
-    		@seeds = Seed.find_all_by_family(params[:seed_family]).sort_by_variety.paginate(:page => params[:page], :order => 'variety, ASC', :per_page => 10, :remote => true)
-			end
+	if params[:seed_family]
+		@seeds = Seed.find_all_by_family(params[:seed_family]).sort_by_variety.paginate(:page => params[:page], :order => 'variety, ASC', :per_page => 10, :remote => true)
+	end
     respond_to do |format|
       format.html # index.html.erb
 			format.js 
@@ -71,6 +71,21 @@ class SeedsController < ApplicationController
       else
         format.html { render action: "edit" }
         format.json { render json: @seed.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def add_quantity
+	@seed = Seed.find(params[:id])
+	@ounces = params[:grams].to_i*0.035274
+	@seed.update_quantity(@ounces)
+    respond_to do |format|
+	  if(request.method == "POST")
+		format.html { redirect_to @seed, notice: 'Seed was successfully updated.' }
+        format.json { head :no_content }
+	  else
+		  format.html
+		  format.json { render json: @seed }
       end
     end
   end

@@ -13,9 +13,8 @@ IrcSeedBank::Application.routes.draw do
 	end
 
   resources :donors
-
-  resources :seeds
-
+  match '/seeds/add_quantity/:id' => 'seeds#add_quantity', as: :add_quantity
+  resources :seeds	
 	devise_for :users, :controllers => {:registrations => "registrations"}
 	resources :users, :only => :show	
 	authenticated :user do

@@ -23,6 +23,7 @@
 	<b>Description:</b><br />
 	<%= @seed.description %>
 </p>
+<%= link_to "Add Arbitrary Quantity", add_quantity_path(@seed) %>
 <%= link_to "Edit Seed", edit_seed_path(@seed) %>
 </div>
 	<%= render "donor_list" %>

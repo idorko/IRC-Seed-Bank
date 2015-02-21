@@ -70,8 +70,8 @@ class DonationsController < ApplicationController
 		respond_to do |format|
       if @donation.save
 				#link seed to donation			
-				@donation.update_attribute(:quantity, params[:pounds].to_i*16 + params[:ounces].to_f)			
-				@donation.seed.update_quantity
+				@donation.update_attribute(:quantity, params[:grams].to_i*0.035274)			
+				@donation.seed.update_quantity(@donation.quantity)
         format.html { redirect_to @seed, notice: 'Donation was successfully created.' }
         format.json { render json: @donation, status: :created, location: @donation }
       else
