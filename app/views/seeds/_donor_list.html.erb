@@ -5,6 +5,7 @@
 			<th>Date</th>
 			<th>Donor</th>
 		  <th>Quantity</th>
+		  <th>Value</th>
 
 		</tr>
 	<div class="apple_pagination">
@@ -20,8 +21,10 @@
 		  	<td><%= link_to donation.farmer.name, donation.farmer %></td>
 			<% end %>	  
 			<td><%= donation.pounds %></td>
+			<td>$<%= donation.value %></td>
 		  <td><%= link_to 'More Details', donation %></td>
 		</tr>
 	<% end %>
 	</table>
+	
 </div>

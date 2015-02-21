@@ -22,6 +22,14 @@ class Seed < ActiveRecord::Base
 		end
 	end
 	
+	def total_value
+		total = 0
+		self.donations.each do |donation|
+			total += donation.value
+		end
+		return total
+	end
+	
 	def update_quantity(quantity)
 		#get total quantity of seeds in bank based on 
 		#donations and dispensals

@@ -23,6 +23,10 @@
 	<b>Description:</b><br />
 	<%= @seed.description %>
 </p>
+<p>
+	<b>Total Value </b><br/>
+	$<%= @seed.total_value %>
+</p>
 <%= link_to "Add Arbitrary Quantity", add_quantity_path(@seed) %>
 <%= link_to "Edit Seed", edit_seed_path(@seed) %>
 </div>
