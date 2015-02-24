@@ -7,6 +7,7 @@ gem 'rails', '>= 3.2.2'
 
 group :production, :staging do
 	gem 'pg' 
+	gem 'thin'
 	gem 'annotate'
 end
 
