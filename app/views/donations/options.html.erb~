@@ -1,6 +1,6 @@
 <div class="article columnSingle">	
 <h3> Donation Information </h3>
-<b>Donor: </b><%= @donor.name %><br />
+<b>Seed Company: </b><%= @donor.name %><br />
 <b>Seed: </b><%= @seed.humanize %><br />
 <b>Current Quantity: </b><%= @seed.pounds %><br/>
 <br />

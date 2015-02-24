@@ -1,6 +1,6 @@
 <div class="article columnSingle">	
 <h3> Donation Information </h3>
-<b>Donor: </b><%= @donor.name %><br />
+<b>Seed Company: </b><%= @donor.name %><br />
 <b>Seed: </b><%= @seed.humanize %><br />
 <b>Current Quantity: </b><%= @seed.pounds %><br/>
 <br />
@@ -24,6 +24,14 @@
 	<div class = "field">
 		<b><%= f.label :value %>:</b>
 		<%= f.text_field :value %>$
+	</div>
+	<div class = "field">
+		<b>Seed Year:</b>
+		<%= f.text_field :seed_age %>
+	</div>
+	<div class = "field">
+		<b>Is Donation</b>
+		<%= f.check_box :is_donation %>
 	</div>
 	<div class="field">
 		<%= f.hidden_field :donor_id %>

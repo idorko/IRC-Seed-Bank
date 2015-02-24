@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150221232203) do
+ActiveRecord::Schema.define(:version => 20150224011203) do
 
   create_table "dispensals", :force => true do |t|
     t.string   "family"
@@ -37,12 +37,14 @@ ActiveRecord::Schema.define(:version => 20150221232203) do
     t.string   "family"
     t.string   "variety"
     t.float    "quantity"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.integer  "donor_id"
     t.integer  "seed_id"
     t.float    "value"
     t.integer  "farmer_id"
+    t.integer  "seed_age"
+    t.boolean  "is_donation"
   end
 
   add_index "donations", ["id", "updated_at", "donor_id", "seed_id"], :name => "donations_index"
