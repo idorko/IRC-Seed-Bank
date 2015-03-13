@@ -25,7 +25,7 @@ class Seed < ActiveRecord::Base
 	def total_value
 		total = 0
 		self.donations.each do |donation|
-			total += donation.value
+			total += (donation.value != nil ? donation.value : 0)
 		end
 		return total
 	end
